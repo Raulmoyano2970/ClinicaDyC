@@ -4,10 +4,12 @@ import {
   HiAnnotation,
   HiArrowNarrowUp,
   HiDocumentText,
-  HiOutlineUserGroup,
 } from 'react-icons/hi';
 import { Button, Table } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import NavbarIntern from './NavbarIntern'
+import { SolarUsersGroupRoundedBroken } from './Icons/patientsLogo';
+import { BsArrowDownLeft, BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs';
 
 export default function DashboardComp() {
   const [users, setUsers] = useState([]);
@@ -66,66 +68,77 @@ export default function DashboardComp() {
       fetchComments();
     }
   }, [currentUser]);
+
+
   return (
-    <div className='p-3 md:mx-auto'>
-      <div className='flex-wrap flex gap-4 justify-center'>
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md'>
+    <div className='p-4 md:mx-auto'>
+      {/* search */}
+      <div className='pb-5'>
+        <NavbarIntern />
+      </div>
+      {/* Boxes */}
+      <div className='flex-wrap flex md:w-auto gap-10 justify-center'>
+        {/* Box Users */}
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
           <div className='flex justify-between'>
+          <SolarUsersGroupRoundedBroken className='text-white text-5xl p-3 shadow-lg' />
             <div className=''>
-              <h3 className='text-gray-500 text-md uppercase'>Total Users</h3>
+              <h3 className='text-gray-500 text-md'>Pacientes totales</h3>
               <p className='text-2xl'>{totalUsers}</p>
             </div>
-            <HiOutlineUserGroup className='bg-teal-600  text-white rounded-full text-5xl p-3 shadow-lg' />
           </div>
-          <div className='flex  gap-2 text-sm'>
+          <div className='flex gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
               <HiArrowNarrowUp />
               {lastMonthUsers}
             </span>
-            <div className='text-gray-500'>Last month</div>
+            <div className='text-gray-500'>Ultimo mes</div>
           </div>
         </div>
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md'>
+        {/* Box comments */}
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md uppercase'>
-                Total Comments
+              <h3 className='text-gray-500 text-md'>
+                Comentarios totales
               </h3>
               <p className='text-2xl'>{totalComments}</p>
             </div>
-            <HiAnnotation className='bg-indigo-600  text-white rounded-full text-5xl p-3 shadow-lg' />
+            <HiAnnotation className='text-white rounded-full text-5xl p-3 shadow-lg' />
           </div>
           <div className='flex  gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
               <HiArrowNarrowUp />
               {lastMonthComments}
             </span>
-            <div className='text-gray-500'>Last month</div>
+            <div className='text-gray-500'>Ultimo mes</div>
           </div>
         </div>
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md'>
+        {/* Box post */}
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md uppercase'>Total Posts</h3>
+              <h3 className='text-gray-500 text-md'>Recetas totales</h3>
               <p className='text-2xl'>{totalPosts}</p>
             </div>
-            <HiDocumentText className='bg-lime-600  text-white rounded-full text-5xl p-3 shadow-lg' />
+            <HiDocumentText className='text-white rounded-full text-5xl p-3 shadow-lg' />
           </div>
           <div className='flex  gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
               <HiArrowNarrowUp />
               {lastMonthPosts}
             </span>
-            <div className='text-gray-500'>Last month</div>
+            <div className='text-gray-500'>Ultimo mes</div>
           </div>
         </div>
       </div>
-      <div className='flex flex-wrap gap-4 py-3 mx-auto justify-center'>
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+      {/* box pacientes recientes */}
+      <div className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
+        <div className='flex flex-col w-full md:w-80 shadow-md p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Recent users</h1>
+            <h1 className='text-center p-2'>Pacientes mas recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
-              <Link to={'/dashboard?tab=users'}>See all</Link>
+              <Link to={'/dashboard?tab=users'}>Ver</Link>
             </Button>
           </div>
           <Table hoverable>
@@ -150,7 +163,7 @@ export default function DashboardComp() {
               ))}
           </Table>
         </div>
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+        {/* <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Recent comments</h1>
             <Button outline gradientDuoTone='purpleToPink'>
@@ -174,12 +187,14 @@ export default function DashboardComp() {
                 </Table.Body>
               ))}
           </Table>
-        </div>
+        </div> */}
+        
+        {/* box recetas recientes */}
         <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
-          <div className='flex justify-between  p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Recent posts</h1>
+          <div className='flex justify-between p-3 text-sm font-semibold'>
+            <h1 className='text-center p-2'>Recetas mas recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
-              <Link to={'/dashboard?tab=posts'}>See all</Link>
+              <Link to={'/dashboard?tab=posts'}>Ver</Link>
             </Button>
           </div>
           <Table hoverable>

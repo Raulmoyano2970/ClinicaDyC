@@ -1,17 +1,15 @@
 import { Sidebar } from 'flowbite-react';
-import {
-  HiUser,
-  HiArrowSmRight,
-  HiDocumentText,
-  HiOutlineUserGroup,
-  HiAnnotation,
-  HiChartPie,
-} from 'react-icons/hi';
 import { useEffect, useState } from 'react';
+import { OuiHome } from './Icons/homeLogo';
+import { MaterialSymbolsNewWindowRounded } from './Icons/recetasLogo';
+import { SolarUsersGroupRoundedBroken } from './Icons/patientsLogo';
+import { SolarSettingsOutline } from './Icons/perfilLogo';
+import { SolarNotesMinimalisticLinear } from './Icons/commentsLogo';
 import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import LogoShopy from '../assets/LOGOSHOPPY.png'
 
 export default function DashSidebar() {
   const location = useLocation();
@@ -42,70 +40,78 @@ export default function DashSidebar() {
   };
   return (
     <Sidebar className='w-full md:w-56'>
-      <Sidebar.Items>
+        <Sidebar.Items>
+        <Link
+          to='/dashboard?tab=dash'
+          className='p-5 self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
+        >
+          <img src={LogoShopy} height='200' width='200' alt="logo" />
+        </Link>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           {currentUser && currentUser.isAdmin && (
             <Link to='/dashboard?tab=dash'>
               <Sidebar.Item
                 active={tab === 'dash' || !tab}
-                icon={HiChartPie}
+                icon={OuiHome}
                 as='div'
               >
-                Dashboard
+                Home
               </Sidebar.Item>
             </Link>
           )}
-          <Link to='/dashboard?tab=profile'>
-            <Sidebar.Item
-              active={tab === 'profile'}
-              icon={HiUser}
-              label={currentUser.isAdmin ? 'Admin' : 'User'}
-              labelColor='dark'
-              as='div'
-            >
-              Profile
-            </Sidebar.Item>
-          </Link>
+          {currentUser.isAdmin && (
+            <Link to='/dashboard?tab=users'>
+              <Sidebar.Item
+                active={tab === 'users'}
+                icon={SolarUsersGroupRoundedBroken}
+                as='div'
+              >
+                Pacientes
+              </Sidebar.Item>
+            </Link>
+          )}
           {currentUser.isAdmin && (
             <Link to='/dashboard?tab=posts'>
               <Sidebar.Item
                 active={tab === 'posts'}
-                icon={HiDocumentText}
+                icon={MaterialSymbolsNewWindowRounded}
                 as='div'
               >
-                Posts
+                Recetas
               </Sidebar.Item>
             </Link>
           )}
           {currentUser.isAdmin && (
             <>
-              <Link to='/dashboard?tab=users'>
-                <Sidebar.Item
-                  active={tab === 'users'}
-                  icon={HiOutlineUserGroup}
-                  as='div'
-                >
-                  Users
-                </Sidebar.Item>
-              </Link>
               <Link to='/dashboard?tab=comments'>
                 <Sidebar.Item
                   active={tab === 'comments'}
-                  icon={HiAnnotation}
+                  icon={SolarNotesMinimalisticLinear}
                   as='div'
                 >
-                  Comments
+                  Comentarios
                 </Sidebar.Item>
               </Link>
             </>
           )}
-          <Sidebar.Item
-            icon={HiArrowSmRight}
+          <Link to='/dashboard?tab=profile'>
+            <Sidebar.Item
+              active={tab === 'profile'}
+              icon={SolarSettingsOutline}
+              label={currentUser.isAdmin ? 'Admin' : 'User'}
+              labelColor='dark'
+              as='div'
+            >
+              Perfil
+            </Sidebar.Item>
+          </Link>
+          {/* <Sidebar.Item
+            icon={AkarIconsSignOut}
             className='cursor-pointer'
             onClick={handleSignout}
           >
-            Sign Out
-          </Sidebar.Item>
+            Cerrar sesion
+          </Sidebar.Item> */}
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

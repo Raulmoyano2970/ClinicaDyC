@@ -6,6 +6,7 @@ import DashPosts from '../components/DashPosts';
 import DashUsers from '../components/DashUsers';
 import DashComments from '../components/DashComments';
 import DashboardComp from '../components/DashboardComp';
+import Header from '../components/Header'
 
 export default function Dashboard() {
   const location = useLocation();
@@ -17,21 +18,22 @@ export default function Dashboard() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
+
   return (
     <div className='min-h-screen flex flex-col md:flex-row'>
       <div className='md:w-56'>
         {/* Sidebar */}
         <DashSidebar />
       </div>
-      {/* profile... */}
+      {/* perfil configuaraciones */}
       {tab === 'profile' && <DashProfile />}
-      {/* posts... */}
+      {/* recetas... */}
       {tab === 'posts' && <DashPosts />}
-      {/* users */}
+      {/* pacientes */}
       {tab === 'users' && <DashUsers />}
-      {/* comments  */}
+      {/* comentarios  */}
       {tab === 'comments' && <DashComments />}
-      {/* dashboard comp */}
+      {/* vista dashboard */}
       {tab === 'dash' && <DashboardComp />}
     </div>
   );
