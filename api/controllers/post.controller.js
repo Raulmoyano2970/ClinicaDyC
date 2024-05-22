@@ -5,7 +5,7 @@ export const create = async (req, res, next) => {
   if (!req.user.isAdmin) {
     return next(errorHandler(403, 'You are not allowed to create a post'));
   }
-  if (!req.body.title || !req.body.content) {
+  if (!req.body.title || !req.body.content || !req.body.contenido) {
     return next(errorHandler(400, 'Please provide all required fields'));
   }
   const slug = req.body.title
@@ -40,27 +40,23 @@ export const getposts = async (req, res, next) => {
         $or: [
           { title: { $regex: req.query.searchTerm, $options: 'i' } },
           { content: { $regex: req.query.searchTerm, $options: 'i' } },
+          { nombrecompleto: { $regex: req.query.searchTerm, $options: 'i' } },
         ],
       }),
     })
       .sort({ updatedAt: sortDirection })
       .skip(startIndex)
       .limit(limit);
-
     const totalPosts = await Post.countDocuments();
-
     const now = new Date();
-
     const oneMonthAgo = new Date(
       now.getFullYear(),
       now.getMonth() - 1,
       now.getDate()
     );
-
     const lastMonthPosts = await Post.countDocuments({
       createdAt: { $gte: oneMonthAgo },
     });
-
     res.status(200).json({
       posts,
       totalPosts,
@@ -94,6 +90,11 @@ export const updatepost = async (req, res, next) => {
         $set: {
           title: req.body.title,
           content: req.body.content,
+          contenido: req.body.contenido,
+          celular: req.body.celular,
+          celularemergencia: req.body.celularemergencia,
+          email: req.body.email,
+          edad: req.body.edad,
           category: req.body.category,
           image: req.body.image,
         },

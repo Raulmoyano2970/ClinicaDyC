@@ -10,11 +10,33 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    contenido: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
       unique: true,
     },
+    celular: {
+      type: String,
+      required: true,
+    },
+    celularemergencia: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    edad: {
+      type: String,
+      required: true,
+    },
+
+
     image: {
       type: String,
       default:
