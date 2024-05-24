@@ -109,12 +109,12 @@ export default function UpdatePost() {
   };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Update post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>Editar Paciente</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
             type='text'
-            placeholder='Title'
+            placeholder='RUT'
             required
             id='title'
             className='flex-1'
@@ -123,18 +123,80 @@ export default function UpdatePost() {
             }
             value={formData.title}
           />
+                    <TextInput
+            type='text'
+            placeholder='Nombre Completo'
+            required
+            id='contenido'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, contenido: e.target.value })
+            }
+            value={formData.contenido}
+          />
           <Select
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
             value={formData.category}
           >
-            <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='uncategorized'>Sexo</option>
+            <option value='Masculino'>Masculino</option>
+            <option value='Femenino'>Femenino</option>
+            <option value='Otro'>Otro</option>
           </Select>
+          
         </div>
+        <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+          <TextInput
+            type='text'
+            placeholder='Celular'
+            required
+            id='celular'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, celular: e.target.value })
+            }
+            value={formData.celular}
+          />
+                    <TextInput
+            type='text'
+            placeholder='Celular Emergencia'
+            required
+            id='celularemergencia'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, celularemergencia: e.target.value })
+            }
+            value={formData.celularemergencia}
+          />     
+        </div>
+        <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+         
+          <TextInput
+            type='text'
+            placeholder='Email'
+            required
+            id='email'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            value={formData.email}
+          />
+                    <TextInput
+            type='text'
+            placeholder='Edad'
+            required
+            id='edad'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, edad: e.target.value })
+            }
+            value={formData.edad}
+          />     
+        </div>
+
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
           <FileInput
             type='file'

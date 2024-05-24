@@ -130,7 +130,7 @@ export default function CreatePost() {
               type='text'
               placeholder='Celular'
               required
-              id='title'
+              id='celular'
               className='flex-1'
               onChange={(e) =>
                 setFormData({ ...formData, celular: e.target.value })
@@ -140,7 +140,7 @@ export default function CreatePost() {
               type='text'
               placeholder='Celular Emergencia'
               required
-              id='contenido'
+              id='celularemergencia'
               className='flex-1'
               onChange={(e) =>
                 setFormData({ ...formData, celularemergencia: e.target.value })
@@ -152,7 +152,7 @@ export default function CreatePost() {
               type='text'
               placeholder='Email'
               required
-              id='title'
+              id='email'
               className='flex-1'
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -162,7 +162,7 @@ export default function CreatePost() {
               type='text'
               placeholder='Edad'
               required
-              id='contenido'
+              id='edad'
               className='flex-1'
               onChange={(e) =>
                 setFormData({ ...formData, edad: e.target.value })
@@ -171,40 +171,7 @@ export default function CreatePost() {
           </div>
               
 
-          <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
-            <FileInput
-              type='file'
-              accept='image/*'
-              onChange={(e) => setFile(e.target.files[0])}
-              />
-            <Button
-              type='button'
-              gradientDuoTone='purpleToBlue'
-              size='sm'
-              outline
-              onClick={handleUpdloadImage}
-              disabled={imageUploadProgress}
-            >
-              {imageUploadProgress ? (
-                <div className='w-16 h-16'>
-                  <CircularProgressbar
-                    value={imageUploadProgress}
-                    text={`${imageUploadProgress || 0}%`}
-                  />
-                </div>
-              ) : (
-                'Subir Imagen'
-              )}
-            </Button>
-          </div>
-          {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
-          {formData.image && (
-            <img
-            src={formData.image}
-              alt='upload'
-              className='w-full h-72 object-cover'
-              />
-          )}
+
           <ReactQuill
             theme='snow'
             placeholder='Write something...'

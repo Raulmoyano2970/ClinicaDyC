@@ -126,6 +126,7 @@ export default function CommentSection({ postId }) {
           >
             @{currentUser.username}
           </Link>
+  
         </div>
       ) : (
         <div className='text-sm text-teal-500 my-5 flex gap-1'>
@@ -136,11 +137,35 @@ export default function CommentSection({ postId }) {
         </div>
       )}
       {currentUser && (
+
         <form
           onSubmit={handleSubmit}
           className='border border-teal-500 rounded-md p-3'
         >
-          <Textarea
+      
+    
+          <TextInput
+            placeholder='Add a comment...'
+            rows='3'
+            maxLength='200'
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+          />
+          <TextInput
+            placeholder='Add a comment...'
+            rows='3'
+            maxLength='200'
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+          />
+          <TextInput
+            placeholder='Add a comment...'
+            rows='3'
+            maxLength='200'
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+          />
+          <TextInput
             placeholder='Add a comment...'
             rows='3'
             maxLength='200'

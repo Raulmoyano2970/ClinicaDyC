@@ -69,11 +69,12 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
         </div>
         {isEditing ? (
           <>
-            <Textarea
+                      <Textarea
               className='mb-2'
               value={editedContent}
               onChange={(e) => setEditedContent(e.target.value)}
             />
+
             <div className='flex justify-end gap-2 text-xs'>
               <Button
                 type='button'

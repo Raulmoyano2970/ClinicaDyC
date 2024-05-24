@@ -73,7 +73,7 @@ export default function DashPosts() {
   };
 
   return (
-    <div className='p-4 p-4 md:mx-auto'>
+    <div className='p-4 md:mx-auto'>
       <div>
         <h1 className='p-5'>
           Pacientes

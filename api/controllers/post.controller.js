@@ -40,7 +40,7 @@ export const getposts = async (req, res, next) => {
         $or: [
           { title: { $regex: req.query.searchTerm, $options: 'i' } },
           { content: { $regex: req.query.searchTerm, $options: 'i' } },
-          { contenido1: { $regex: req.query.searchTerm, $options: 'i' } },
+          { contenido: { $regex: req.query.searchTerm, $options: 'i' } },
         ],
       }),
     })
@@ -96,7 +96,6 @@ export const updatepost = async (req, res, next) => {
           email: req.body.email,
           edad: req.body.edad,
           category: req.body.category,
-          image: req.body.image,
         },
       },
       { new: true }
