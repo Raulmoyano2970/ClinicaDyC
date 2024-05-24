@@ -39,7 +39,7 @@ export default function DashSidebar() {
     }
   };
   return (
-    <Sidebar className='w-full md:w-56'>
+    <Sidebar className='w-full md:w-56 border-r-2 dark:border-slate-700'>
         <Sidebar.Items>
         <Link
           to='/dashboard?tab=dash'
@@ -66,7 +66,7 @@ export default function DashSidebar() {
                 icon={SolarUsersGroupRoundedBroken}
                 as='div'
               >
-                Pacientes
+                Usuarios
               </Sidebar.Item>
             </Link>
           )}
@@ -77,7 +77,7 @@ export default function DashSidebar() {
                 icon={MaterialSymbolsNewWindowRounded}
                 as='div'
               >
-                Recetas
+                Pacientes
               </Sidebar.Item>
             </Link>
           )}
@@ -89,7 +89,7 @@ export default function DashSidebar() {
                   icon={SolarNotesMinimalisticLinear}
                   as='div'
                 >
-                  Comentarios
+                  Recetas
                 </Sidebar.Item>
               </Link>
             </>

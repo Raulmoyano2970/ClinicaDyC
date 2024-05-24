@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
+import { AkarIconsSignOut } from './Icons/singoutLogo';
+import { SolarUserRoundedBroken } from './Icons/userLogo'
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -86,31 +88,37 @@ export default function Header() {
             arrowIcon={false}
             inline
             label={
-              <Avatar alt='user' img={currentUser.profilePicture} rounded />
+              <Avatar alt='user' img={currentUser.profilePicture} rounded>Dr. {currentUser.username}</Avatar>
             }
           >
-            <Dropdown.Header>
-              <span className='block text-sm'>@{currentUser.username}</span>
-              <span className='block text-sm font-medium truncate'>
-                {currentUser.email}
-              </span>
-            </Dropdown.Header>
-            <Link to={'/dashboard?tab=profile'}>
-              <Dropdown.Item>Profile</Dropdown.Item>
-            </Link>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
-          </Dropdown>
-        ) : (
+          <Link 
+            to={'/dashboard?tab=profile'}>
+            <Dropdown.Item
+            icon={SolarUserRoundedBroken}
+            >
+              Perfil
+            </Dropdown.Item>
+          </Link>
+          <Dropdown.Item 
+          onClick={handleSignout}
+          className='cursor-pointer'
+          icon={AkarIconsSignOut}
+          >
+            Cerrar sesion
+          </Dropdown.Item>
+        </Dropdown>
+      ) : (
+        <>
           <Link to='/sign-in'>
             <Button gradientDuoTone='purpleToBlue' outline>
-              Sign In
+              Iniciar sesion
             </Button>
           </Link>
+        </>
         )}
-        <Navbar.Toggle />
+        {/* <Navbar.Toggle /> */}
       </div>
-      <Navbar.Collapse>
+      {/* <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
           <Link to='/'>Home</Link>
         </Navbar.Link>
@@ -120,7 +128,7 @@ export default function Header() {
         <Navbar.Link active={path === '/projects'} as={'div'}>
           <Link to='/projects'>Projects</Link>
         </Navbar.Link>
-      </Navbar.Collapse>
+      </Navbar.Collapse> */}
     </Navbar>
   );
 }

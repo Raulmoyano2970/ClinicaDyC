@@ -66,7 +66,12 @@ export default function DashUsers() {
 
   return (
     <div className='p-4 md:mx-auto'>
-      <div className='pb-5'>
+      <div>
+        <h1 className='p-5'>
+          Usuarios
+        </h1>
+      </div>
+      <div className='pl-3'>
         <NavbarIntern />
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
@@ -74,12 +79,12 @@ export default function DashUsers() {
           <>
             <Table hoverable className='shadow-md'>
               <Table.Head>
-                <Table.HeadCell>Date created</Table.HeadCell>
-                <Table.HeadCell>User image</Table.HeadCell>
-                <Table.HeadCell>Username</Table.HeadCell>
+                <Table.HeadCell>Fecha</Table.HeadCell>
+                <Table.HeadCell>Imagen</Table.HeadCell>
+                <Table.HeadCell>Usuario</Table.HeadCell>
                 <Table.HeadCell>Email</Table.HeadCell>
                 <Table.HeadCell>Admin</Table.HeadCell>
-                <Table.HeadCell>Delete</Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {users.map((user) => (
                 <Table.Body className='divide-y' key={user._id}>
@@ -111,7 +116,7 @@ export default function DashUsers() {
                         }}
                         className='font-medium text-red-500 hover:underline cursor-pointer'
                         >
-                        Delete
+                        Eliminar
                       </span>
                     </Table.Cell>
                   </Table.Row>
@@ -123,7 +128,7 @@ export default function DashUsers() {
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
               >
-                Show more
+                Mostrar mas
               </button>
             )}
           </>

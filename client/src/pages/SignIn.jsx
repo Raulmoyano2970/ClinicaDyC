@@ -63,7 +63,7 @@ export default function SignIn() {
         <div className='flex-1'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
-              <Label value='Your email' />
+              <Label value='Email' />
               <TextInput
                 type='email'
                 placeholder='name@company.com'
@@ -72,10 +72,10 @@ export default function SignIn() {
               />
             </div>
             <div>
-              <Label value='Your password' />
+              <Label value='Contraseña' />
               <TextInput
                 type='password'
-                placeholder='**********'
+                placeholder='********'
                 id='password'
                 onChange={handleChange}
               />
@@ -91,15 +91,14 @@ export default function SignIn() {
                   <span className='pl-3'>Loading...</span>
                 </>
               ) : (
-                'Sign In'
+                'Ingresar'
               )}
             </Button>
-            <OAuth />
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Dont Have an account?</span>
+            <span>No tienes cuenta?</span>
             <Link to='/sign-up' className='text-blue-500'>
-              Sign Up
+              Crear cuenta
             </Link>
           </div>
           {errorMessage && (

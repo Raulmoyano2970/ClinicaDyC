@@ -72,10 +72,6 @@ export default function DashboardComp() {
 
   return (
     <div className='p-4 md:mx-auto'>
-      {/* search */}
-      <div className='pb-5'>
-        <NavbarIntern />
-      </div>
       {/* Boxes */}
       <div className='flex-wrap flex md:w-auto gap-10 justify-center'>
         {/* Box Users */}
@@ -136,9 +132,9 @@ export default function DashboardComp() {
       <div className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
         <div className='flex flex-col w-full md:w-80 shadow-md p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Pacientes mas recientes</h1>
+            <h1 className='text-center p-2'>Usuarios</h1>
             <Button outline gradientDuoTone='purpleToPink'>
-              <Link to={'/dashboard?tab=users'}>Ver</Link>
+              <Link to={'/dashboard?tab=users'}>Ver mas</Link>
             </Button>
           </div>
           <Table hoverable>
@@ -192,30 +188,24 @@ export default function DashboardComp() {
         {/* box recetas recientes */}
         <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Recetas mas recientes</h1>
+            <h1 className='text-center p-2'>Pacientes mas recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
-              <Link to={'/dashboard?tab=posts'}>Ver</Link>
+              <Link to={'/dashboard?tab=posts'}>Ver mas</Link>
             </Button>
           </div>
           <Table hoverable>
             <Table.Head>
-              <Table.HeadCell>Post image</Table.HeadCell>
-              <Table.HeadCell>Post Title</Table.HeadCell>
-              <Table.HeadCell>Category</Table.HeadCell>
+              <Table.HeadCell>Rut</Table.HeadCell>
+              <Table.HeadCell>Paciente</Table.HeadCell>
+              <Table.HeadCell>Sexo</Table.HeadCell>
             </Table.Head>
             {posts &&
               posts.map((post) => (
                 <Table.Body key={post._id} className='divide-y'>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell>
-                      <img
-                        src={post.image}
-                        alt='user'
-                        className='w-14 h-10 rounded-md bg-gray-500'
-                      />
-                    </Table.Cell>
-                    <Table.Cell className='w-96'>{post.title}</Table.Cell>
-                    <Table.Cell className='w-5'>{post.category}</Table.Cell>
+                  <Table.Cell  className='w-52'>{post.title}</Table.Cell>
+                    <Table.Cell className='w-72'>{post.contenido}</Table.Cell>
+                    <Table.Cell className='w-12'>{post.category}</Table.Cell>
                   </Table.Row>
                 </Table.Body>
               ))}

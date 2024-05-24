@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { set } from 'mongoose';
 import NavbarIntern from './NavbarIntern';
+import { BiPlus } from 'react-icons/bi';
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
@@ -73,8 +73,13 @@ export default function DashPosts() {
   };
 
   return (
-    <div className='p-4 md:mx-auto'>
-      <div className='pb-5'>
+    <div className='p-4 p-4 md:mx-auto'>
+      <div>
+        <h1 className='p-5'>
+          Pacientes
+        </h1>
+      </div>
+      <div className='pl-3'>
         <NavbarIntern />
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
@@ -82,13 +87,14 @@ export default function DashPosts() {
           <>
             <Table hoverable className='shadow-md'>
               <Table.Head>
-                <Table.HeadCell>Date updated</Table.HeadCell>
-                <Table.HeadCell>Post image</Table.HeadCell>
-                <Table.HeadCell>Post title</Table.HeadCell>
-                <Table.HeadCell>Category</Table.HeadCell>
-                <Table.HeadCell>Delete</Table.HeadCell>
+                <Table.HeadCell>Fecha</Table.HeadCell>
+                <Table.HeadCell>Imagen</Table.HeadCell>
+                <Table.HeadCell>Nombre</Table.HeadCell>
+                <Table.HeadCell>Rut</Table.HeadCell>
+                <Table.HeadCell>Sexo</Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
                 <Table.HeadCell>
-                  <span>Edit</span>
+                  <span></span>
                 </Table.HeadCell>
               </Table.Head>
               {userPosts.map((post) => (
@@ -111,6 +117,14 @@ export default function DashPosts() {
                         className='font-medium text-gray-900 dark:text-white'
                         to={`/post/${post.slug}`}
                         >
+                        {post.contenido}
+                      </Link>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Link
+                        className='font-medium text-gray-900 dark:text-white'
+                        to={`/post/${post.slug}`}
+                        >
                         {post.title}
                       </Link>
                     </Table.Cell>
@@ -123,7 +137,7 @@ export default function DashPosts() {
                         }}
                         className='font-medium text-red-500 hover:underline cursor-pointer'
                         >
-                        Delete
+                        Eliminar
                       </span>
                     </Table.Cell>
                     <Table.Cell>
@@ -131,7 +145,7 @@ export default function DashPosts() {
                         className='text-teal-500 hover:underline'
                         to={`/update-post/${post._id}`}
                         >
-                        <span>Edit</span>
+                        <span>Editar</span>
                       </Link>
                     </Table.Cell>
                   </Table.Row>
@@ -143,7 +157,7 @@ export default function DashPosts() {
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
               >
-                Show more
+                Mostrar mas
               </button>
             )}
           </>
@@ -175,6 +189,12 @@ export default function DashPosts() {
           </Modal.Body>
         </Modal>
       </div>
+      <Link
+        to={'/create-post'}
+        className="w-16 button-fb h-16 border-2 border-zinc-800 z-50 bg-subMain text-gray rounded-full flex-colo fixed bottom-8 right-12 dark:text-white dark:border-white"
+      >
+          <BiPlus className="text-6xl"/>
+      </Link>
     </div>
   );
 }

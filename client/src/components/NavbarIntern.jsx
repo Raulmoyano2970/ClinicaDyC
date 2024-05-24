@@ -66,57 +66,6 @@ export default function NavbarIntern() {
         <Button className='w-12 h-10 lg:hidden' color='gray' pill>
           <AiOutlineSearch />
         </Button>
-        <div className='flex gap-2 md:order-2'>
-          <Button
-            className='w-12 h-10 hidden sm:inline'
-            color='gray'
-            pill
-            onClick={() => dispatch(toggleTheme())}
-            >
-            {theme === 'light' ? <FaSun /> : <FaMoon />}
-          </Button>
-          {currentUser ? (
-            <Dropdown
-              arrowIcon={false}
-              inline
-              label={
-                <Avatar alt='user' img={currentUser.profilePicture} rounded />
-              }
-            >
-              {/* <Dropdown.Header>
-                <span className='block text-sm'>{currentUser.username}</span>
-                <Dropdown.Divider />
-                <span className='block text-sm font-medium truncate'>
-                  {currentUser.email}
-                </span>
-              </Dropdown.Header> */}
-              <Link 
-                to={'/dashboard?tab=profile'}>
-                <Dropdown.Item
-                icon={SolarUserRoundedBroken}
-                >
-                  Perfil
-                </Dropdown.Item>
-              </Link>
-              {/* <Dropdown.Divider /> */}
-              <Dropdown.Item 
-              onClick={handleSignout}
-              className='cursor-pointer'
-              icon={AkarIconsSignOut}
-              >
-                Cerrar sesion
-              </Dropdown.Item>
-            </Dropdown>
-          ) : (
-            <Link to='/sign-in'>
-              <Button gradientDuoTone='purpleToBlue' outline>
-                Iniciar sesion
-              </Button>
-            </Link>
-          )}
-          <span className='flex' inline>Dr. {currentUser.username}</span>
-          <Navbar.Toggle />
-        </div>
       </Navbar>
     </div>
   );

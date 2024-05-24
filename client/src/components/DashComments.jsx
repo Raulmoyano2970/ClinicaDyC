@@ -2,8 +2,10 @@ import { Modal, Table, Button } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { FaCheck, FaTimes } from 'react-icons/fa';
 import NavbarIntern from './NavbarIntern';
+import { BiPlus } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);
@@ -74,7 +76,12 @@ export default function DashComments() {
 
   return (
     <div className='p-4 md:mx-auto'>
-      <div className='pb-5'>
+      <div>
+        <h1 className='p-5'>
+          Recetas
+        </h1>
+      </div>
+      <div className='pl-3'>
         <NavbarIntern />
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
@@ -82,12 +89,11 @@ export default function DashComments() {
           <>
             <Table hoverable className='shadow-md'>
               <Table.Head>
-                <Table.HeadCell>Date updated</Table.HeadCell>
-                <Table.HeadCell>Comment content</Table.HeadCell>
-                <Table.HeadCell>Number of likes</Table.HeadCell>
-                <Table.HeadCell>PostId</Table.HeadCell>
-                <Table.HeadCell>UserId</Table.HeadCell>
-                <Table.HeadCell>Delete</Table.HeadCell>
+                <Table.HeadCell>Fecha receta</Table.HeadCell>
+                <Table.HeadCell>Receta</Table.HeadCell>
+                <Table.HeadCell>Paciente</Table.HeadCell>
+                <Table.HeadCell>Id receta</Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
@@ -96,10 +102,9 @@ export default function DashComments() {
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
                     <Table.Cell>{comment.content}</Table.Cell>
-                    <Table.Cell>{comment.numberOfLikes}</Table.Cell>
+                    <Table.Cell>Deroni Elgueta</Table.Cell>
                     <Table.Cell>{comment.postId}</Table.Cell>
-                    <Table.Cell>{comment.userId}</Table.Cell>
-                    <Table.Cell>
+                      <Table.Cell>
                       <span
                         onClick={() => {
                           setShowModal(true);
@@ -107,7 +112,7 @@ export default function DashComments() {
                         }}
                         className='font-medium text-red-500 hover:underline cursor-pointer'
                       >
-                        Delete
+                        Eliminar
                       </span>
                     </Table.Cell>
                   </Table.Row>
@@ -124,7 +129,7 @@ export default function DashComments() {
             )}
           </>
         ) : (
-          <p>You have no comments yet!</p>
+          <p>No hay recetas aun</p>
         )}
         <Modal
           show={showModal}
@@ -151,6 +156,11 @@ export default function DashComments() {
           </Modal.Body>
         </Modal>
       </div>
+        <Link
+          className="w-16 button-fb h-16 border border-border z-50 bg-subMain text-white rounded-full flex-colo fixed bottom-8 right-12"
+        >
+            <BiPlus className="text-6xl"/>
+        </Link>
     </div>
   );
 }
