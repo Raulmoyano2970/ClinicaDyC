@@ -87,11 +87,12 @@ export default function DashPosts() {
           <>
             <Table hoverable className='shadow-md'>
               <Table.Head>
-                <Table.HeadCell>Fecha</Table.HeadCell>
-                <Table.HeadCell>Imagen</Table.HeadCell>
                 <Table.HeadCell>Nombre</Table.HeadCell>
+                {/* <Table.HeadCell>Imagen</Table.HeadCell> */}
                 <Table.HeadCell>Rut</Table.HeadCell>
+                <Table.HeadCell>edad</Table.HeadCell>
                 <Table.HeadCell>Sexo</Table.HeadCell>
+                <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell></Table.HeadCell>
                 <Table.HeadCell>
                   <span></span>
@@ -100,10 +101,7 @@ export default function DashPosts() {
               {userPosts.map((post) => (
                 <Table.Body className='divide-y'>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell>
-                      {new Date(post.updatedAt).toLocaleDateString()}
-                    </Table.Cell>
-                    <Table.Cell>
+                    {/* <Table.Cell>
                       <Link to={`/post/${post.slug}`}>
                         <img
                           src={post.image}
@@ -111,7 +109,7 @@ export default function DashPosts() {
                           className='w-20 h-10 object-cover bg-gray-500'
                           />
                       </Link>
-                    </Table.Cell>
+                    </Table.Cell> */}
                     <Table.Cell>
                       <Link
                         className='font-medium text-gray-900 dark:text-white'
@@ -128,7 +126,11 @@ export default function DashPosts() {
                         {post.title}
                       </Link>
                     </Table.Cell>
+                    <Table.Cell>{post.edad}</Table.Cell>
                     <Table.Cell>{post.category}</Table.Cell>
+                    <Table.Cell>
+                      {new Date(post.updatedAt).toLocaleDateString()}
+                    </Table.Cell>
                     <Table.Cell>
                       <span
                         onClick={() => {
@@ -162,7 +164,7 @@ export default function DashPosts() {
             )}
           </>
         ) : (
-          <p>You have no posts yet!</p>
+          <p>Cargando</p>
         )}
         <Modal
           show={showModal}

@@ -89,11 +89,10 @@ export default function DashComments() {
           <>
             <Table hoverable className='shadow-md'>
               <Table.Head>
-                <Table.HeadCell>Fecha receta</Table.HeadCell>
-                <Table.HeadCell>Receta</Table.HeadCell>
+                <Table.HeadCell>Creado el</Table.HeadCell>
+                <Table.HeadCell>Observaciones</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
                 <Table.HeadCell>Id receta</Table.HeadCell>
-                <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
@@ -104,7 +103,7 @@ export default function DashComments() {
                     <Table.Cell>{comment.content}</Table.Cell>
                     <Table.Cell>Deroni Elgueta</Table.Cell>
                     <Table.Cell>{comment.postId}</Table.Cell>
-                      <Table.Cell>
+                      {/* <Table.Cell>
                       <span
                         onClick={() => {
                           setShowModal(true);
@@ -114,7 +113,7 @@ export default function DashComments() {
                       >
                         Eliminar
                       </span>
-                    </Table.Cell>
+                    </Table.Cell> */}
                   </Table.Row>
                 </Table.Body>
               ))}

@@ -169,9 +169,6 @@ export default function CreatePost() {
               }
               />
           </div>
-              
-
-
           <ReactQuill
             theme='snow'
             placeholder='Write something...'

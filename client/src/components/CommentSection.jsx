@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
+//VISTA CREAR RECETA
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
