@@ -1,4 +1,4 @@
-import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react';
+import { Alert, Button, FileInput, Select, TextInput,  Datepicker  } from 'flowbite-react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {
@@ -119,7 +119,7 @@ export default function CreatePost() {
                 setFormData({ ...formData, category: e.target.value })
               }
             >
-              <option value='uncategorized'>Sexo</option>
+              <option value='uncategorized'>Genero</option>
               <option value='Masculino'>Masculino</option>
               <option value='Femenino'>Femenino</option>
               <option value='Otro'>Otro</option>
@@ -160,7 +160,7 @@ export default function CreatePost() {
               />
             <TextInput
               type='text'
-              placeholder='Edad'
+              placeholder='Fecha Nacimiento'
               required
               id='edad'
               className='flex-1'
@@ -168,6 +168,33 @@ export default function CreatePost() {
                 setFormData({ ...formData, edad: e.target.value })
               }
               />
+      
+          </div>  <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+            <TextInput
+              type='text'
+              placeholder='Direccion'
+              required
+              id='direccion'
+              className='flex-1'
+              onChange={(e) =>
+                setFormData({ ...formData, direccion: e.target.value })
+              }
+              />
+              <Select
+              onChange={(e) =>
+                setFormData({ ...formData, sanguineo: e.target.value })
+              }
+            >
+              <option value='uncategorized'>Sanguineo</option>
+              <option value='A+'>A+</option>
+              <option value='A-'>A-</option>
+              <option value='B+'>B+</option>
+              <option value='B-'>B-</option>
+              <option value='AB+'>AB+</option>
+              <option value='AB-'>AB-</option>
+              <option value='AB+'>O+</option>
+              <option value='AB-'>O-</option>
+            </Select>
           </div>
           <ReactQuill
             theme='snow'

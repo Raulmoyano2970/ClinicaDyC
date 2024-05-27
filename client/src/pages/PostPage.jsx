@@ -98,6 +98,12 @@ export default function PostPage() {
                   <Button color='gray' pill size='xs'>
                     {post && post.category}
                   </Button>
+                  <Button color='gray' pill size='xs'>
+                    {post && post.sanguineo}
+                  </Button>
+                  <Button color='gray' pill size='xs'>
+                    {post && post.direccion}
+                  </Button>
                 </div>
               </div>
             </div>

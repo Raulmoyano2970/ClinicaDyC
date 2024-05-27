@@ -96,6 +96,8 @@ export const updatepost = async (req, res, next) => {
           email: req.body.email,
           edad: req.body.edad,
           category: req.body.category,
+          sanguineo:req.body.sanguineo,
+          direccion:req.body.direccion,
         },
       },
       { new: true }

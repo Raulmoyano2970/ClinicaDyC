@@ -35,6 +35,14 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    sanguineo: {
+      type: String,
+      required: true,
+    },
+    direccion: {
+      type: String,
+      required: true,
+    },
 
 
     // image: {
