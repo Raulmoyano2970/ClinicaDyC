@@ -73,7 +73,7 @@ export default function PostPage() {
         <div className="flex gap-4 pt-1">
           <Link
               to="/dashboard?tab=posts"
-              className="rounded-lg py-3 px-4 text-md bg-gray-500 bg-opacity-10"
+              className="rounded-lg py-3 px-4 text-white bg-teal-600 hover:bg-teal-800"
             >
               <IoArrowBackOutline />
             </Link>
@@ -132,7 +132,7 @@ export default function PostPage() {
                   dangerouslySetInnerHTML= {{__html:post && post.content }}
                 ></div>
               <div className='flex col-span-1'>
-                <Link class="text-lg font-bold text-teal-600">
+                <Link class="text-lg font-bold text-teal-600 hover:text-teal-800">
                   Ver
                 </Link>
               </div>

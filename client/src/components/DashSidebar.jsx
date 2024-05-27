@@ -41,12 +41,12 @@ export default function DashSidebar() {
   return (
     <Sidebar className='w-full md:w-56 border-r-2 dark:border-slate-700'>
         <Sidebar.Items>
-        <Link
+        {/* <Link
           to='/dashboard?tab=dash'
           className='p-5 self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
         >
           <img src={LogoShopy} height='200' width='200' alt="logo" />
-        </Link>
+        </Link> */}
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           {currentUser && currentUser.isAdmin && (
             <Link to='/dashboard?tab=dash'>
@@ -54,19 +54,9 @@ export default function DashSidebar() {
                 active={tab === 'dash' || !tab}
                 icon={OuiHome}
                 as='div'
+                className='hover:bg-teal-700 hover:bg-opacity-20'
               >
                 Home
-              </Sidebar.Item>
-            </Link>
-          )}
-          {currentUser.isAdmin && (
-            <Link to='/dashboard?tab=users'>
-              <Sidebar.Item
-                active={tab === 'users'}
-                icon={SolarUsersGroupRoundedBroken}
-                as='div'
-              >
-                Usuarios
               </Sidebar.Item>
             </Link>
           )}
@@ -76,6 +66,7 @@ export default function DashSidebar() {
                 active={tab === 'posts'}
                 icon={MaterialSymbolsNewWindowRounded}
                 as='div'
+                className='hover:bg-teal-700 hover:bg-opacity-20'
               >
                 Pacientes
               </Sidebar.Item>
@@ -88,11 +79,24 @@ export default function DashSidebar() {
                   active={tab === 'comments'}
                   icon={SolarNotesMinimalisticLinear}
                   as='div'
+                  className='hover:bg-teal-700 hover:bg-opacity-20'
                 >
                   Recetas
                 </Sidebar.Item>
               </Link>
             </>
+          )}
+          {currentUser.isAdmin && (
+            <Link to='/dashboard?tab=users'>
+              <Sidebar.Item
+                active={tab === 'users'}
+                icon={SolarUsersGroupRoundedBroken}
+                as='div'
+                className='hover:bg-teal-700 hover:bg-opacity-20'
+              >
+                Usuarios
+              </Sidebar.Item>
+            </Link>
           )}
           <Link to='/dashboard?tab=profile'>
             <Sidebar.Item
@@ -101,6 +105,7 @@ export default function DashSidebar() {
               label={currentUser.isAdmin ? 'Admin' : 'User'}
               labelColor='dark'
               as='div'
+              className='hover:bg-teal-700 hover:bg-opacity-20'
             >
               Perfil
             </Sidebar.Item>

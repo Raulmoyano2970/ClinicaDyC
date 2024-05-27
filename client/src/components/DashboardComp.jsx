@@ -8,7 +8,7 @@ import {
 import { Button, Table } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import NavbarIntern from './NavbarIntern'
-import { SolarUsersGroupRoundedBroken } from './Icons/patientsLogo';
+import { SolarUsersGroupRoundedBroken } from './Icons/patientsLogo2';
 import { BsArrowDownLeft, BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs';
 
 export default function DashboardComp() {
@@ -75,32 +75,34 @@ export default function DashboardComp() {
       {/* Boxes */}
       <div className='flex-wrap flex md:w-auto gap-10 justify-center'>
         {/* Box Users */}
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
-          <SolarUsersGroupRoundedBroken className='text-white text-5xl p-3 shadow-lg' />
             <div className=''>
-              <h3 className='text-gray-500 text-md'>Pacientes totales</h3>
+              <h3 className='text-gray-500 text-md'>
+                Usuarios totales
+              </h3>
               <p className='text-2xl'>{totalUsers}</p>
             </div>
+            <SolarUsersGroupRoundedBroken className='text-white text-5xl p-3 shadow-lg bg-teal-600 rounded-full'/>
           </div>
-          <div className='flex gap-2 text-sm'>
+          <div className='flex  gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
               <HiArrowNarrowUp />
-              {lastMonthUsers}
+              {lastMonthComments}
             </span>
             <div className='text-gray-500'>Ultimo mes</div>
           </div>
         </div>
         {/* Box comments */}
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
             <div className=''>
               <h3 className='text-gray-500 text-md'>
-                Comentarios totales
+                Recetas totales
               </h3>
               <p className='text-2xl'>{totalComments}</p>
             </div>
-            <HiAnnotation className='text-white rounded-full text-5xl p-3 shadow-lg' />
+            <HiAnnotation className='text-white bg-teal-600 rounded-full text-5xl p-3 shadow-lg' />
           </div>
           <div className='flex  gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
@@ -111,13 +113,13 @@ export default function DashboardComp() {
           </div>
         </div>
         {/* Box post */}
-        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md shadow-md'>
+        <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md'>Recetas totales</h3>
+              <h3 className='text-gray-500 text-md'>Pacientes totales</h3>
               <p className='text-2xl'>{totalPosts}</p>
             </div>
-            <HiDocumentText className='text-white rounded-full text-5xl p-3 shadow-lg' />
+            <HiDocumentText className='text-white bg-teal-600 rounded-full text-5xl p-3 shadow-lg' />
           </div>
           <div className='flex  gap-2 text-sm'>
             <span className='text-green-500 flex items-center'>
@@ -130,10 +132,10 @@ export default function DashboardComp() {
       </div>
       {/* box pacientes recientes */}
       <div className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
-        <div className='flex flex-col w-full md:w-80 shadow-md p-2 rounded-md dark:bg-gray-800'>
+        <div className='flex flex-col w-full md:w-80 border-2 border-teal-700 p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Usuarios</h1>
-            <Button outline gradientDuoTone='purpleToPink'>
+            <Button>
               <Link to={'/dashboard?tab=users'}>Ver mas</Link>
             </Button>
           </div>
@@ -186,10 +188,10 @@ export default function DashboardComp() {
         </div> */}
         
         {/* box recetas recientes */}
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+        <div className='flex flex-col w-full md:w-auto border-2 border-teal-700 p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Pacientes mas recientes</h1>
-            <Button outline gradientDuoTone='purpleToPink'>
+            <Button >
               <Link to={'/dashboard?tab=posts'}>Ver mas</Link>
             </Button>
           </div>

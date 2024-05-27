@@ -177,26 +177,38 @@ export default function DashPosts() {
             <div className='text-center'>
               <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
               <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-                Are you sure you want to delete this post?
+                Esta por eliminar este paciente completamente del registro
               </h3>
               <div className='flex justify-center gap-4'>
                 <Button color='failure' onClick={handleDeletePost}>
-                  Yes, I'm sure
+                  Si, eliminar
                 </Button>
                 <Button color='gray' onClick={() => setShowModal(false)}>
-                  No, cancel
+                  No, cancelar
                 </Button>
               </div>
             </div>
           </Modal.Body>
         </Modal>
       </div>
-      <Link
+      <Link 
         to={'/create-post'}
-        className="w-16 button-fb h-16 border-2 border-zinc-800 z-50 bg-subMain text-gray rounded-full flex-colo fixed bottom-8 right-12 dark:text-white dark:border-white"
-      >
-          <BiPlus className="text-6xl"/>
+        >
+        <button class="inline-flex items-center justify-center w-16 h-16 mr-2 text-indigo-100 transition-colors duration-150 bg-teal-600 rounded-full focus:shadow-outline hover:bg-teal-800 fixed bottom-8 right-12">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 16 17">
+            {/* <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd">
+            </path> */}
+            <BiPlus></BiPlus>
+          </svg>
+        </button>
       </Link>
+      {/* <Link
+        to={'/create-post'}
+        // className="w-16 button-fb h-16 border-2 border-zinc-800 z-50 bg-subMain text-gray rounded-full flex-colo fixed bottom-8 right-12 dark:text-white dark:border-white"
+        classname="inline-flex items-center justify-center w-16 h-16 mr-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-full focus:shadow-outline hover:bg-indigo-800 fixed bottom-8 right-12"
+      >
+          <BiPlus className="text-2xl"/>
+      </Link> */}
     </div>
   );
 }

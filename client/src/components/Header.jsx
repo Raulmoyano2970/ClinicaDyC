@@ -56,29 +56,27 @@ export default function Header() {
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-          Sahand's
+        <span className='px-2 py-1 bg-gradient-to-r from-teal-400 via-teal-550 to-teal-800 rounded-lg text-white'>
+          DyC
         </span>
-        Blog
+         Coloproctología
       </Link>
       <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
-          placeholder='Search...'
+          placeholder='Buscar pacientes...'
           rightIcon={AiOutlineSearch}
           className='hidden lg:inline'
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+      <Button className='w-12 h-10 lg:hidden' pill>
         <AiOutlineSearch />
       </Button>
-      <div className='flex gap-2 md:order-2'>
+      <div className='flex gap-5 p-5 md:order-2 hover:border-0'>
         <Button
-          className='w-12 h-10 hidden sm:inline'
-          color='gray'
-          pill
+          className='w-12 h-12 hidden sm:inline bg-teal-600 rounded-full'
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
@@ -88,20 +86,21 @@ export default function Header() {
             arrowIcon={false}
             inline
             label={
-              <Avatar alt='user' img={currentUser.profilePicture} rounded>Dr. {currentUser.username}</Avatar>
+              <Avatar alt='user' className='hover:bg-opacity-10 hover:text-teal-500' img={currentUser.profilePicture} rounded>Dr. {currentUser.username}</Avatar>
             }
           >
           <Link 
             to={'/dashboard?tab=profile'}>
             <Dropdown.Item
             icon={SolarUserRoundedBroken}
+            className='text-teal-700'
             >
               Perfil
             </Dropdown.Item>
           </Link>
           <Dropdown.Item 
           onClick={handleSignout}
-          className='cursor-pointer'
+          className='cursor-pointer text-teal-700'
           icon={AkarIconsSignOut}
           >
             Cerrar sesion
