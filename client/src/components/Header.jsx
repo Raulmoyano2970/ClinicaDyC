@@ -59,7 +59,7 @@ export default function Header() {
         <span className='px-2 py-1 bg-gradient-to-r from-teal-400 via-teal-550 to-teal-800 rounded-lg text-white'>
           DyC
         </span>
-         Coloproctología
+          Coloproctología
       </Link>
       <form onSubmit={handleSubmit}>
         <TextInput
@@ -75,12 +75,12 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-5 p-5 md:order-2 hover:border-0'>
-        <Button
-          className='w-12 h-12 hidden sm:inline bg-teal-600 rounded-full'
+        <Link
+          className='w-12 h-12 hidden sm:inline bg-teal-500 rounded-full'
           onClick={() => dispatch(toggleTheme())}
         >
-          {theme === 'light' ? <FaSun /> : <FaMoon />}
-        </Button>
+          {theme === 'light' ? <svg className="hover:bg-teal-700 hover:rounded-full" color='white'xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="-17.5 -18 60 60"><path fill="currentColor" d="M11 5V1h2v4zm6.65 2.75l-1.375-1.375l2.8-2.875l1.4 1.425zM19 13v-2h4v2zm-8 10v-4h2v4zM6.35 7.7L3.5 4.925l1.425-1.4L7.75 6.35zm12.7 12.8l-2.775-2.875l1.35-1.35l2.85 2.75zM1 13v-2h4v2zm3.925 7.5l-1.4-1.425l2.8-2.8l.725.675l.725.7zM12 18q-2.5 0-4.25-1.75T6 12t1.75-4.25T12 6t4.25 1.75T18 12t-1.75 4.25T12 18"/></svg> : <svg className="hover:bg-teal-700 hover:rounded-full"  xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="-175 -180 600 600"><path fill="currentColor" d="M235.54 150.21a104.84 104.84 0 0 1-37 52.91A104 104 0 0 1 32 120a103.1 103.1 0 0 1 20.88-62.52a104.84 104.84 0 0 1 52.91-37a8 8 0 0 1 10 10a88.08 88.08 0 0 0 109.8 109.8a8 8 0 0 1 10 10Z"/></svg>}
+        </Link>
         {currentUser ? (
           <Dropdown
             arrowIcon={false}

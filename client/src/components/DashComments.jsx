@@ -77,12 +77,9 @@ export default function DashComments() {
   return (
     <div className='p-4 md:mx-auto'>
       <div>
-        <h1 className='p-5'>
+        <h1 className='p-5 text-sm sm:text-xl font-semibold'>
           Recetas
         </h1>
-      </div>
-      <div className='pl-3'>
-        <NavbarIntern />
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
         {currentUser.isAdmin && comments.length > 0 ? (

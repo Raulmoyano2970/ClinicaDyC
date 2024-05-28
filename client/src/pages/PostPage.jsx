@@ -3,10 +3,11 @@ import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
-import patient_8638075 from '../assets/patient_8638075.png';
-import adduser from '../assets/add-user.png';
 import CommentSection from '../components/CommentSection';
 import DashSidebar from '../components/DashSidebar';
+import CreateReceta from './Receta/CreateReceta';
+import { TextInput } from 'flowbite-react';
+import ModalReceta from './Receta/ModalReceta';
 
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
@@ -15,6 +16,8 @@ export default function PostPage() {
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [recentPosts, setRecentPosts] = useState(null);
+  //Modal
+  const [estadoModal, setEstadoModal] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -115,9 +118,58 @@ export default function PostPage() {
                 Historial Medico
               </h1>
               <p></p>
-              <Button className='w-full gap-4 hover:opacity-80 transitions text-white text-sm font-medium px-2 py-1 rounded'>
+              <Link 
+                onClick={() => setEstadoModal(!estadoModal)}
+                className='w-full flex justify-center p-4 bg-teal-600 hover:bg-teal-800 text-white text-sm font-medium rounded-lg'>
                 Nueva Receta
-              </Button>
+              </Link>
+              <div className='w-full gap-4 transitions text-white text-sm font-medium px-2 py-1 rounded'>
+                <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                >
+                  <div className='flex items-start text-lg font'>
+                      <h1 className='font-semibold pr-1'>Nombre: </h1>
+                      <p>{post && post.contenido}</p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                      <h1 className='font-semibold pr-1'>Rut:</h1>
+                      <p>{post && post.title}</p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                      <h1 className='font-semibold pr-1'>Edad: </h1>
+                      <p> {post && post.edad} </p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                      <h1 className='font-semibold pr-1'>Sexo:</h1>
+                      <p>{post && post.category}</p>
+                  </div>
+                  <div className='pt-4'>
+                      <div className='text-lg'>
+                          <h1 className='font-semibold pb-2'>Diagnostico</h1>
+                          <TextInput
+                          type='text'
+                          placeholder='Diagnostico de paciente'
+                          className=''
+                          />
+                      </div>
+                  </div>
+                  <div className='pt-4 pb-10'>
+                      <div className='text-lg'>
+                          <h1 className='font-semibold pr-1 pb-2'>Observaciones</h1>
+                          <TextInput
+                              type='text'
+                              placeholder='Observaciones'
+                              className=''
+                          />
+                      </div>
+                  </div>
+                  <div className='text-lg pt-10'>
+                    <hr class="flex justify-center w-64 h-px mx-auto bg-gray-300 border-0 rounded md:my-1 dark:bg-gray-700"/>
+                    <h1 className='flex justify-center font-semibold'>Firma Medico</h1>
+                  </div>
+                </ModalReceta>
+              </div>
             </div>
             <div class="grid grid-cols-12 gap-6 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
               <div class="flex col-span-2 ">

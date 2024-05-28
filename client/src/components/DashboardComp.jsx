@@ -78,7 +78,7 @@ export default function DashboardComp() {
         <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md'>
+              <h3 className='text-gray-500 text-md font-semibold '>
                 Usuarios totales
               </h3>
               <p className='text-2xl'>{totalUsers}</p>
@@ -97,7 +97,7 @@ export default function DashboardComp() {
         <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md'>
+              <h3 className='text-gray-500 text-md font-semibold '>
                 Recetas totales
               </h3>
               <p className='text-2xl'>{totalComments}</p>
@@ -116,7 +116,7 @@ export default function DashboardComp() {
         <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700'>
           <div className='flex justify-between'>
             <div className=''>
-              <h3 className='text-gray-500 text-md'>Pacientes totales</h3>
+              <h3 className='text-gray-500 text-md font-semibold '>Pacientes totales</h3>
               <p className='text-2xl'>{totalPosts}</p>
             </div>
             <HiDocumentText className='text-white bg-teal-600 rounded-full text-5xl p-3 shadow-lg' />
@@ -133,8 +133,8 @@ export default function DashboardComp() {
       {/* box pacientes recientes */}
       <div className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
         <div className='flex flex-col w-full md:w-80 border-2 border-teal-700 p-2 rounded-md dark:bg-gray-800'>
-          <div className='flex justify-between  p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Usuarios</h1>
+          <div className='flex justify-between p-3'>
+            <h1 className='text-center p-2 font-semibold '>Usuarios</h1>
             <Button>
               <Link to={'/dashboard?tab=users'}>Ver mas</Link>
             </Button>
@@ -189,7 +189,7 @@ export default function DashboardComp() {
         
         {/* box recetas recientes */}
         <div className='flex flex-col w-full md:w-auto border-2 border-teal-700 p-2 rounded-md dark:bg-gray-800'>
-          <div className='flex justify-between p-3 text-sm font-semibold'>
+          <div className='flex justify-between p-3 font-semibold '>
             <h1 className='text-center p-2'>Pacientes mas recientes</h1>
             <Button >
               <Link to={'/dashboard?tab=posts'}>Ver mas</Link>
