@@ -33,7 +33,7 @@ const CreateReceta = () => {
                 </div>
                 <div className='pt-8'>
                     <div className='items-start text-lg'>
-                        <h1 className='font-semibold pr-1 pb-2'>Observaciones</h1>
+                        <h1 className='font-semibold pr-1 pb-2'>Observaciones5</h1>
                         <TextInput
                             type='text'
                             placeholder='Observaciones'

@@ -9,6 +9,7 @@ import CreateReceta from './Receta/CreateReceta';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
 
+
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
   const { postSlug } = useParams();
@@ -147,21 +148,12 @@ export default function PostPage() {
                   <div className='pt-4'>
                       <div className='text-lg'>
                           <h1 className='font-semibold pb-2'>Diagnostico</h1>
-                          <TextInput
-                          type='text'
-                          placeholder='Diagnostico de paciente'
-                          className=''
-                          />
+
                       </div>
                   </div>
                   <div className='pt-4 pb-10'>
                       <div className='text-lg'>
-                          <h1 className='font-semibold pr-1 pb-2'>Observaciones</h1>
-                          <TextInput
-                              type='text'
-                              placeholder='Observaciones'
-                              className=''
-                          />
+                      {/* <CommentSection postId={post._id} /> */}
                       </div>
                   </div>
                   <div className='text-lg pt-10'>
@@ -193,6 +185,7 @@ export default function PostPage() {
           </div>
         </div>
         <CommentSection postId={post._id} />
+        
       </main>
     </div>
   );

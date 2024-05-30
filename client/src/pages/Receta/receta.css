@@ -3,3 +3,19 @@
     flex-direction: row-reverse;
     gap: 10px;
 }
+
+.imagenmodal{
+    display: none;
+}
+
+.megusta{
+    display: none;
+}
+
+.spanfecha{
+display: none;
+}
+
+.nombreuser{
+    display: none;
+}
