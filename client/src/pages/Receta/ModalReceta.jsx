@@ -1,11 +1,12 @@
 import React from "react"
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
-import { MdOutlineCloudDownload } from 'react-icons/md';
-import { AiOutlinePrinter } from 'react-icons/ai';
+import { IoCloudDownloadOutline } from "react-icons/io5";
+import { PiPrinterLight } from "react-icons/pi";
+import { CiSaveDown2 } from "react-icons/ci";
 import './receta.css'
 
-const ModalReceta = ({children, state, setState}) => {
+const ModalReceta = ({children, state, setState,}) => {
     return (
         <>
             {state &&
@@ -24,15 +25,20 @@ const ModalReceta = ({children, state, setState}) => {
                         <div className="download pt-2">
                             <button
                                 className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
-                            >Descargar
-                            <MdOutlineCloudDownload className="pl-2 inline w-7 h-7"/>
+                                >Descargar
+                                <IoCloudDownloadOutline className="pl-2 inline w-7 h-7"/>
                             </button>
                             <button
                                 className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
-                            >
-                                Imprimir <AiOutlinePrinter className="pl-1 inline w-7 h-7"/>
+                                >Imprimir 
+                                <PiPrinterLight className="pl-1 inline w-7 h-7"/>
                             </button>
-                            </div>
+                            <button
+                                className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
+                                >Guardar
+                                <CiSaveDown2 className="pl-1 inline w-7 h-7"/>
+                            </button>
+                        </div>
                     </ContenedorModal>
                 </Overlay>
             }

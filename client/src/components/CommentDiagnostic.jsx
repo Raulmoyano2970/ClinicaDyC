@@ -1,13 +1,14 @@
-import { Button, Modal } from 'flowbite-react';
+import { Alert, Button, Modal, TextInput, Textarea } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 //VISTA CREAR RECETA
-export default function CommentSection({ postId }) {
+export default function CommentDiagnostic({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
@@ -15,7 +16,7 @@ export default function CommentSection({ postId }) {
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
   const navigate = useNavigate();
-
+  
   const stripHtml = (html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
@@ -125,48 +126,88 @@ export default function CommentSection({ postId }) {
   const handleChange = (value) => {
     setComment(value);
 };
+
   return (
     
     <div className='max-w-2xl mx-auto w-full p-3'>
-          <>
-          {comments.map((comment) => (
-            <div class="grid grid-cols-12 gap-6 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
-            <div class="flex col-span-2 ">
-                <h1>Fecha</h1>
-              </div>
-              <div class="flex col-span-10">
-                <div>
-                  <h1 className='text-gray-500 pr-2'>Observaciones:</h1>
-                </div>
-                <div
-                  className='pr-12 max-w-2xl mx-auto w-full post-content'
-                  >
-                  <Comment
-                    key={comment._id}
-                    comment={comment}
-                    onLike={handleLike}
-                    onEdit={handleEdit}
-                    onDelete={(commentId) => {
-                      setShowModal(true);
-                      setCommentToDelete(commentId);
-                    }}
-                  />
-                </div>
-              </div>
+          {/* <>
+          <div className='text-sm my-5 flex items-center gap-1'>
+          <p>OBSERVACIONES:</p>
+            <p>Comments</p>
+            <div className='border border-gray-400 py-1 px-2 rounded-sm'>
+              <p>{comments.length}</p>
             </div>
+          </div>
+          {comments.map((comment) => (
+            <Comment
+              key={comment._id}
+              comment={comment}
+              onLike={handleLike}
+              onEdit={handleEdit}
+              onDelete={(commentId) => {
+                setShowModal(true);
+                setCommentToDelete(commentId);
+              }}
+            />
           ))}
-        </>
-      {comments.length === 0 ? (
-        <p className='text-sm my-5'>No tiene recetas aun</p>
+        </> */}
+      {/* {currentUser ? (
+        <div className='flex items-center gap-1 my-5 text-gray-500 text-sm'>
+         
+          <Link
+            to={'/dashboard?tab=profile'}
+            className='text-xs text-cyan-600 hover:underline'
+          >
+            @{currentUser.username}
+          </Link>
+  
+        </div>
       ) : (
-        <>
-        </>
-      )}
-      <Modal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        popup
-        size='md'
+        <div className='text-sm text-teal-500 my-5 flex gap-1'>
+          You must be signed in to comment.
+          <Link className='text-blue-500 hover:underline' to={'/sign-in'}>
+            Sign In
+          </Link>
+        </div>
+      )} */}
+
+        {currentUser && (
+            
+            <form
+            onSubmit={handleSubmit}
+            className=''
+            >
+            <ReactQuill
+                theme='snow'
+                placeholder='Escribir diagnostico y observaciones...'
+                className='h-50'
+                required
+                onChange={handleChange}
+                value={comment}
+            />
+            <div className='flex justify-between items-center mt-2'>
+                <Button type='submit'>
+                    Guardar diagnostico
+                </Button>
+            </div>
+            {commentError && (
+                <Alert color='failure' className='mt-5'>
+                {commentError}
+                </Alert>
+            )}
+            </form>
+        )}
+        {comments.length === 0 ? (
+            <p className='text-sm my-5'>No comments yet!</p>
+        ) : (
+            <>
+            </>
+        )}
+        <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+            popup
+            size='md'
         >
         <Modal.Header />
         <Modal.Body>

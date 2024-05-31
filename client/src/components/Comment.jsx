@@ -89,7 +89,6 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               <Button
                 type='button'
                 size='sm'
-                gradientDuoTone='purpleToBlue'
                 onClick={handleSave}
               >
                 Guardar
@@ -97,7 +96,6 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               <Button
                 type='button'
                 size='sm'
-                gradientDuoTone='purpleToBlue'
                 outline
                 onClick={() => setIsEditing(false)}
               >
@@ -128,7 +126,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               </p>
               {currentUser &&
                 (currentUser._id === comment.userId || currentUser.isAdmin) && (
-                  <Dropdown label="" size='sm' gradientDuoTone='purpleToBlue' outline>
+                  <Dropdown label="" size='sm'  outline>
                     <Dropdown.Item onClick={handleEdit}>
                       Editar
                     </Dropdown.Item>

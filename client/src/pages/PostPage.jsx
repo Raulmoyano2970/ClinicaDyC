@@ -8,6 +8,7 @@ import DashSidebar from '../components/DashSidebar';
 import CreateReceta from './Receta/CreateReceta';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
+import CommentDiagnostic from '../components/CommentDiagnostic';
 
 
 //VISTA PERFIL PACIENTE
@@ -147,13 +148,8 @@ export default function PostPage() {
                   </div>
                   <div className='pt-4'>
                       <div className='text-lg'>
-                          <h1 className='font-semibold pb-2'>Diagnostico</h1>
-
-                      </div>
-                  </div>
-                  <div className='pt-4 pb-10'>
-                      <div className='text-lg'>
-                      {/* <CommentSection postId={post._id} /> */}
+                          <h1 className='font-semibold pl-4'>Diagnostico</h1>
+                          <CommentDiagnostic postId={post._id} />
                       </div>
                   </div>
                   <div className='text-lg pt-10'>
@@ -163,91 +159,10 @@ export default function PostPage() {
                 </ModalReceta>
               </div>
             </div>
-            <div class="grid grid-cols-12 gap-6 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
-              <div class="flex col-span-2 ">
-                <h1>Fecha</h1>
-              </div>
-              <div class="flex col-span-9">
-                <div>
-                  <h1 className='text-gray-500 pr-2'>Observaciones:</h1>
-                </div>
-                <div
-                  className='pr-12 max-w-2xl mx-auto w-full post-content'
-                  dangerouslySetInnerHTML= {{__html:post && post.content }}
-                ></div>
-              <div className='flex col-span-1'>
-                <Link class="text-lg font-bold text-teal-600 hover:text-teal-800">
-                  Ver
-                </Link>
-              </div>
-              </div>
-            </div>
+            <CommentSection postId={post._id}/>
           </div>
         </div>
-        <CommentSection postId={post._id} />
-        
       </main>
     </div>
   );
 }
-
-{/* <main className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
-        <div>
-          <h1 className='p-5'>
-            Paciente N*
-          </h1>
-        </div>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.title}
-        </h1>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.contenido}
-        </h1>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.celular}
-        </h1>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.celularemergencia}
-        </h1>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.email}
-        </h1>
-        <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          {post && post.edad}
-        </h1>
-        <Link
-          to={`/search?category=${post && post.category}`}
-          className='self-center mt-5'
-          >
-          <Button color='gray' pill size='xs'>
-            {post && post.category}
-          </Button>
-        </Link>
-        {/* <img
-          src={post && post.image}
-          alt={post && post.title}
-          className='mt-10 p-3 max-h-[600px] w-full object-cover'
-        /> */}
-        {/* <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
-          <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
-          <span className='italic'>
-            {post && (post.content.length / 1000).toFixed(0)} mins read
-          </span>
-        </div>
-        <div
-          className='p-3 max-w-2xl mx-auto w-full post-content'
-          dangerouslySetInnerHTML={{ __html: post && post.content }}
-        ></div> */}
-        {/* <div className='max-w-4xl mx-auto w-full'>
-          <CallToAction />
-        </div> */}
-        // <CommentSection postId={post._id} />
-
-        {/* <div className='flex flex-col justify-center items-center mb-5'>
-          <h1 className='text-xl mt-5'>Recent articles</h1>
-          <div className='flex flex-wrap gap-5 mt-5 justify-center'>
-            {recentPosts &&
-              recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
-              </div>
-            </div> */}
-      // </main> */}
