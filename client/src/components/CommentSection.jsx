@@ -130,7 +130,7 @@ export default function CommentSection({ postId }) {
     <div className='max-w-2xl mx-auto w-full p-3'>
           <>
           {comments.map((comment) => (
-            <div class="grid grid-cols-12 gap-6 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
+            <div class="grid grid-cols-12 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
             <div class="flex col-span-2 ">
                 <h1>Fecha</h1>
               </div>
@@ -139,7 +139,7 @@ export default function CommentSection({ postId }) {
                   <h1 className='text-gray-500 pr-2'>Observaciones:</h1>
                 </div>
                 <div
-                  className='pr-12 max-w-2xl mx-auto w-full post-content'
+                  className='max-w-2xl mx-auto w-full post-content'
                   >
                   <Comment
                     key={comment._id}

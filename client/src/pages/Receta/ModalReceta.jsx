@@ -17,27 +17,10 @@ const ModalReceta = ({children, state, setState,}) => {
                         </EncabezadoModal>
                         <BotonCerrar onClick={()=> setState(false)}>
                             <Link>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="-5 -5 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg></Link>
+                                <svg xmlns="http://www.w3.org/2000/svg" color="white" width="1.5em" height="1.5em" viewBox="-2.5 -2.5 22 22"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg></Link>
                         </BotonCerrar>
                         <div className="p-2">
                             {children}
-                        </div>
-                        <div className="download pt-2">
-                            <button
-                                className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
-                                >Descargar
-                                <IoCloudDownloadOutline className="pl-2 inline w-7 h-7"/>
-                            </button>
-                            <button
-                                className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
-                                >Imprimir 
-                                <PiPrinterLight className="pl-1 inline w-7 h-7"/>
-                            </button>
-                            <button
-                                className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
-                                >Guardar
-                                <CiSaveDown2 className="pl-1 inline w-7 h-7"/>
-                            </button>
                         </div>
                     </ContenedorModal>
                 </Overlay>

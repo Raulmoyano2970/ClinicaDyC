@@ -5,11 +5,10 @@ import { Link, useParams } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import CommentSection from '../components/CommentSection';
 import DashSidebar from '../components/DashSidebar';
-import CreateReceta from './Receta/CreateReceta';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
 import CommentDiagnostic from '../components/CommentDiagnostic';
-
+import VerReceta from './Receta/VerReceta';
 
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
@@ -89,7 +88,7 @@ export default function PostPage() {
         {/* CONTAINER CARDS */}
         <div className='grid grid-cols-12 gap-6 my-2 items-start'>
           {/* LEFT CARD */}
-          <div class="col-span-12 flex-colo lg:col-span-4 bg-gray-500 bg-opacity-10 rounded-xl p-6 lg:sticky top-28">
+          <div class="col-span-12 flex-colo lg:col-span-4 bg-gray-500 bg-opacity-10 rounded-xl p-6 top-28">
             <div class="space-y-4 xl:space-y-6">
               <img class="mx-auto rounded-full h-36 w-36" src={'https://static.vecteezy.com/system/resources/previews/021/352/965/original/user-icon-person-profile-avatar-with-plus-symbol-add-user-profile-icon-png.png'} alt="author avatar"/>
               <div class="space-y-2">
@@ -148,13 +147,9 @@ export default function PostPage() {
                   </div>
                   <div className='pt-4'>
                       <div className='text-lg'>
-                          <h1 className='font-semibold pl-4'>Diagnostico</h1>
+                          <h1 className='font-semibold pb-3'>Diagnostico</h1>
                           <CommentDiagnostic postId={post._id} />
                       </div>
-                  </div>
-                  <div className='text-lg pt-10'>
-                    <hr class="flex justify-center w-64 h-px mx-auto bg-gray-300 border-0 rounded md:my-1 dark:bg-gray-700"/>
-                    <h1 className='flex justify-center font-semibold'>Firma Medico</h1>
                   </div>
                 </ModalReceta>
               </div>

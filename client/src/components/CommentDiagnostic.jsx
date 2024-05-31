@@ -129,7 +129,7 @@ export default function CommentDiagnostic({ postId }) {
 
   return (
     
-    <div className='max-w-2xl mx-auto w-full p-3'>
+    <div className='max-w-2xl mx-auto w-full'>
           {/* <>
           <div className='text-sm my-5 flex items-center gap-1'>
           <p>OBSERVACIONES:</p>
@@ -178,14 +178,13 @@ export default function CommentDiagnostic({ postId }) {
             className=''
             >
             <ReactQuill
-                theme='snow'
                 placeholder='Escribir diagnostico y observaciones...'
-                className='h-50'
+                className='h-25'
                 required
                 onChange={handleChange}
                 value={comment}
             />
-            <div className='flex justify-between items-center mt-2'>
+            <div className='flex place-content-end items-center mt-5'>
                 <Button type='submit'>
                     Guardar diagnostico
                 </Button>
@@ -197,12 +196,12 @@ export default function CommentDiagnostic({ postId }) {
             )}
             </form>
         )}
-        {comments.length === 0 ? (
+        {/* {comments.length === 0 ? (
             <p className='text-sm my-5'>No comments yet!</p>
         ) : (
             <>
             </>
-        )}
+        )} */}
         <Modal
             show={showModal}
             onClose={() => setShowModal(false)}
