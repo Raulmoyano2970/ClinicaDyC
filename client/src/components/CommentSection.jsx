@@ -24,7 +24,7 @@ export default function CommentSection({ postId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
-      return;
+      return; 
     }
     const strippedComment = stripHtml(comment);
     try {
