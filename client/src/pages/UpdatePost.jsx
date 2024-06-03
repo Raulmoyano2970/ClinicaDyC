@@ -14,6 +14,8 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DashSidebar from '../components/DashSidebar';
+import { Link } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
 
 export default function UpdatePost() {
   const [file, setFile] = useState(null);
@@ -105,7 +107,7 @@ export default function UpdatePost() {
         navigate(`/post/${data.slug}`);
       }
     } catch (error) {
-      setPublishError('Something went wrong');
+      setPublishError('Algo salio mal');
     }
   };
   return (
@@ -113,6 +115,14 @@ export default function UpdatePost() {
       <div className='md:w-56'>
         {/* Sidebar */}
         <DashSidebar />
+      </div>
+      <div className="flex gap-4 p-2 max-h-14	">
+        <Link
+            to="/dashboard?tab=posts"
+            className="rounded-lg py-3 px-4 text-white bg-teal-600 hover:bg-teal-800"
+          >
+            <IoArrowBackOutline />
+          </Link>
       </div>
       <div className='p-3 max-w-3xl mx-auto min-h-screen'>
         <h1 className='text-center text-3xl my-7 font-semibold'>Editar Paciente</h1>
@@ -203,7 +213,7 @@ export default function UpdatePost() {
             />     
           </div>
 
-          <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
+          {/* <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
             <FileInput
               type='file'
               accept='image/*'
@@ -229,19 +239,19 @@ export default function UpdatePost() {
               )}
             </Button>
           </div>
-          {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
-          <ReactQuill
-            theme='snow'
-            value={formData.content}
-            placeholder='Write something...'
-            className='h-72 mb-12'
+          {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>} */}
+          <TextInput
+            type='text'
+            placeholder='Alergias, patologias, etc'
+            id='content'
+            value={formData.content}            
             required
-            onChange={(value) => {
-              setFormData({ ...formData, content: value });
-            }}
+            onChange={(e) =>
+              setFormData({ ...formData, content: e.target.value })
+            }
           />
-          <Button type='submit' gradientDuoTone='purpleToPink'>
-            Update post
+          <Button type='submit'>
+            Guardar cambios
           </Button>
           {publishError && (
             <Alert className='mt-5' color='failure'>

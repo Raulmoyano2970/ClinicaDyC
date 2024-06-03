@@ -81,7 +81,6 @@ export default function DashUsers() {
                 <Table.HeadCell>Usuario</Table.HeadCell>
                 <Table.HeadCell>Email</Table.HeadCell>
                 <Table.HeadCell>Admin</Table.HeadCell>
-                <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {users.map((user) => (
                 <Table.Body className='divide-y' key={user._id}>
@@ -105,7 +104,7 @@ export default function DashUsers() {
                         <FaTimes className='text-red-500' />
                       )}
                     </Table.Cell>
-                    <Table.Cell>
+                    {/* <Table.Cell>
                       <span
                         onClick={() => {
                           setShowModal(true);
@@ -115,7 +114,7 @@ export default function DashUsers() {
                         >
                         Eliminar
                       </span>
-                    </Table.Cell>
+                    </Table.Cell> */}
                   </Table.Row>
                 </Table.Body>
               ))}
@@ -130,7 +129,7 @@ export default function DashUsers() {
             )}
           </>
         ) : (
-          <p>You have no users yet!</p>
+          <p>Cargando...</p>
         )}
         <Modal
           show={showModal}

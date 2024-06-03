@@ -92,41 +92,50 @@ export default function DashPosts() {
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell></Table.HeadCell>
                 <Table.HeadCell>
-                  <span></span>
+                </Table.HeadCell>
+                <Table.HeadCell>
                 </Table.HeadCell>
               </Table.Head>
               {userPosts.map((post) => (
                 <Table.Body className='divide-y'>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    {/* <Table.Cell>
+                    <Table.Cell className='font-medium text-gray-900 dark:text-white'>
                       <Link to={`/post/${post.slug}`}>
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className='w-20 h-10 object-cover bg-gray-500'
-                          />
-                      </Link>
-                    </Table.Cell> */}
-                    <Table.Cell>
-                      <Link
-                        className='font-medium text-gray-900 dark:text-white'
-                        to={`/post/${post.slug}`}
-                        >
-                        {post.contenido}
+                      {post.contenido}
                       </Link>
                     </Table.Cell>
                     <Table.Cell>
-                      <Link
-                        className='font-medium text-gray-900 dark:text-white'
-                        to={`/post/${post.slug}`}
-                        >
+                      <Link to={`/post/${post.slug}`}>
                         {post.title}
+                      </Link></Table.Cell>
+                    <Table.Cell>
+                      <Link to={`/post/${post.slug}`}>
+                        {post.edad}
+                      </Link></Table.Cell>
+                    <Table.Cell>
+                      <Link to={`/post/${post.slug}`}>
+                        {post.category}
+                      </Link></Table.Cell>
+                    <Table.Cell>
+                      <Link to={`/post/${post.slug}`}>
+                        {new Date(post.updatedAt).toLocaleDateString()}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell>{post.edad}</Table.Cell>
-                    <Table.Cell>{post.category}</Table.Cell>
                     <Table.Cell>
-                      {new Date(post.updatedAt).toLocaleDateString()}
+                      <Link 
+                        to={`/post/${post.slug}`}
+                        className='text-teal-500 hover:underline'
+                        >
+                        Ver
+                      </Link>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Link
+                        className='text-teal-500 hover:underline'
+                        to={`/update-post/${post._id}`}
+                        >
+                        <span>Editar</span>
+                      </Link>
                     </Table.Cell>
                     <Table.Cell>
                       <span
@@ -138,14 +147,6 @@ export default function DashPosts() {
                         >
                         Eliminar
                       </span>
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Link
-                        className='text-teal-500 hover:underline'
-                        to={`/update-post/${post._id}`}
-                        >
-                        <span>Editar</span>
-                      </Link>
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>
@@ -161,7 +162,7 @@ export default function DashPosts() {
             )}
           </>
         ) : (
-          <p>Cargando</p>
+          <p>No hay un registro de pacientes aun</p>
         )}
         <Modal
           show={showModal}

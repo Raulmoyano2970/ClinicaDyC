@@ -148,12 +148,12 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                   {/* <h3 className='font-semibold'>Diagnostico</h3>
                                   <p>Hola</p> */}
                   <div className='flex items-start text-lg font'>
-                    <h3 className='font-semibold pr-1'>DIAGNOSTICO: </h3>
+                    <h3 className='font-semibold pr-1'>Diagnostico: </h3>
                     <p>{currentComment && currentComment.content}</p>
                   </div>
                 </div>
               </div>
-              <div className='text-lg pt-10'>
+              <div className='text-lg pt-20'>
                 <hr className="flex justify-center w-64 h-px mx-auto bg-gray-300 border-0 rounded md:my-1 dark:bg-gray-700" />
                 <h3 className='flex justify-center font-semibold'>Firma Medico</h3>
               </div>

@@ -44,19 +44,24 @@ export default function SignIn() {
   };
   return (
     <div className='min-h-screen mt-20'>
-      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
+      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5 pr-5'>
         {/* left */}
-        <div className='flex-1'>
-          <Link to='/' className='font-bold dark:text-white text-4xl'>
-            <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              Sahand's
+        <div className='flex-1 pr-10'>
+          <Link
+            to='/'
+            className='self-center whitespace-nowrap text-sm sm:text-3xl font-semibold dark:text-white'
+          >
+            <span className='px-2 py-1 bg-gradient-to-r from-teal-400 via-teal-550 to-teal-800 rounded-lg text-white'>
+              DyC
             </span>
-            Blog
+            <span className='p-1'>
+              Coloproctología
+            </span>
           </Link>
-          <p className='text-sm mt-5'>
+          {/* <p className='text-sm mt-5'>
             This is a demo project. You can sign in with your email and password
             or with Google.
-          </p>
+          </p> */}
         </div>
         {/* right */}
 
@@ -81,26 +86,25 @@ export default function SignIn() {
               />
             </div>
             <Button
-              gradientDuoTone='purpleToPink'
               type='submit'
               disabled={loading}
             >
               {loading ? (
                 <>
                   <Spinner size='sm' />
-                  <span className='pl-3'>Loading...</span>
+                  <span className='pl-3'>Cargando...</span>
                 </>
               ) : (
                 'Ingresar'
               )}
             </Button>
           </form>
-          <div className='flex gap-2 text-sm mt-5'>
+          {/* <div className='flex gap-2 text-sm mt-5'>
             <span>No tienes cuenta?</span>
             <Link to='/sign-up' className='text-blue-500'>
               Crear cuenta
             </Link>
-          </div>
+          </div> */}
           {errorMessage && (
             <Alert className='mt-5' color='failure'>
               {errorMessage}

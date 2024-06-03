@@ -59,7 +59,9 @@ export default function Header() {
         <span className='px-2 py-1 bg-gradient-to-r from-teal-400 via-teal-550 to-teal-800 rounded-lg text-white'>
           DyC
         </span>
+        <span className='p-1'>
           Coloproctología
+        </span>
       </Link>
       <form onSubmit={handleSubmit}>
         <TextInput
@@ -109,7 +111,7 @@ export default function Header() {
       ) : (
         <>
           <Link to='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
+            <Button  >
               Iniciar sesion
             </Button>
           </Link>

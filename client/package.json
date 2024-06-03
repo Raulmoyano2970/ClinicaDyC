@@ -22,7 +22,8 @@
     "react-redux": "^9.0.1",
     "react-router-dom": "^6.20.0",
     "redux-persist": "^6.0.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "react-datepicker": "^4.11.0"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.212",

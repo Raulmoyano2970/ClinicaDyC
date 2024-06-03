@@ -98,7 +98,7 @@ export default function DashComments() {
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
                     <Table.Cell>{comment.content}</Table.Cell>
-                    <Table.Cell>Deroni Elgueta</Table.Cell>
+                    <Table.Cell>{comment.userId}</Table.Cell>
                     <Table.Cell>{comment.postId}</Table.Cell>
                       {/* <Table.Cell>
                       <span
@@ -120,12 +120,12 @@ export default function DashComments() {
                 onClick={handleShowMore}
                 className='w-full text-teal-500 self-center text-sm py-7'
               >
-                Show more
+                Mostrar mas
               </button>
             )}
           </>
         ) : (
-          <p>No hay recetas aun</p>
+          <p>No hay un registro de recetas aun</p>
         )}
         <Modal
           show={showModal}
@@ -138,25 +138,21 @@ export default function DashComments() {
             <div className='text-center'>
               <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
               <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-                Are you sure you want to delete this comment?
+                Esta por eliminar este paciente completamente del registro
               </h3>
               <div className='flex justify-center gap-4'>
                 <Button color='failure' onClick={handleDeleteComment}>
-                  Yes, I'm sure
+                  Si, eliminar
                 </Button>
                 <Button color='gray' onClick={() => setShowModal(false)}>
-                  No, cancel
+                  No, cancelar
                 </Button>
               </div>
             </div>
           </Modal.Body>
         </Modal>
       </div>
-        <Link
-          className="w-16 button-fb h-16 border border-border z-50 bg-subMain text-white rounded-full flex-colo fixed bottom-8 right-12"
-        >
-            <BiPlus className="text-6xl"/>
-        </Link>
+        
     </div>
   );
 }

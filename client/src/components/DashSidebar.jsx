@@ -9,7 +9,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import LogoShopy from '../assets/LOGOSHOPPY.png'
 
 export default function DashSidebar() {
   const location = useLocation();

@@ -8,7 +8,6 @@ import DashSidebar from '../components/DashSidebar';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
 import CommentDiagnostic from '../components/CommentDiagnostic';
-// import VerReceta from './Receta/VerReceta';
 
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
@@ -108,6 +107,9 @@ export default function PostPage() {
                   <Button color='gray' pill size='xs'>
                     {post && post.direccion}
                   </Button>
+                  <Button color='gray' pill size='xs'>
+                    {post && post.content}
+                  </Button>
                 </div>
               </div>
             </div>
@@ -131,7 +133,7 @@ export default function PostPage() {
                   setState = {setEstadoModal}
                 >
                   <div className='flex items-start text-lg font'>
-                      <h1 className='font-semibold pr-1'>Nombre1: </h1>
+                      <h1 className='font-semibold pr-1'>Nombre: </h1>
                       <p>{post && post.contenido}</p>
                   </div>
                   <div className='flex items-start text-lg font'>

@@ -13,6 +13,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import DashSidebar from '../components/DashSidebar';
+import { Link } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
@@ -20,6 +22,7 @@ export default function CreatePost() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
+  const [date, setDate] = useState(new Date());
 
   const navigate = useNavigate();
 
@@ -61,6 +64,7 @@ export default function CreatePost() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const res = await fetch('/api/post/create', {
         method: 'POST',
@@ -90,7 +94,15 @@ export default function CreatePost() {
           {/* Sidebar */}
           <DashSidebar />
         </div>
-        <div className='p-3 max-w-3xl mx-auto min-h-screen'>
+        <div className="flex gap-4 p-2 max-h-14	">
+          <Link
+              to="/dashboard?tab=posts"
+              className="rounded-lg py-3 px-4 text-white bg-teal-600 hover:bg-teal-800"
+            >
+              <IoArrowBackOutline />
+            </Link>
+        </div>
+        <div className='p-3 max-w-3xl mx-auto min-h-screen pr-20'>
         <h1 className='text-center text-3xl my-7 font-semibold'>CREAR PACIENTE</h1>
         <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
           <div className='flex flex-col gap-4 sm:flex-row justify-between'>
@@ -104,7 +116,7 @@ export default function CreatePost() {
                 setFormData({ ...formData, title: e.target.value })
               }
             />
-                    <TextInput
+            <TextInput
               type='text'
               placeholder='Nombre Completo'
               required
@@ -127,7 +139,7 @@ export default function CreatePost() {
           </div>
           <div className='flex flex-col gap-4 sm:flex-row justify-between'>
             <TextInput
-              type='text'
+              type='number'
               placeholder='Celular'
               required
               id='celular'
@@ -137,7 +149,7 @@ export default function CreatePost() {
               }
               />
             <TextInput
-              type='text'
+              type='number'
               placeholder='Celular Emergencia'
               required
               id='celularemergencia'
@@ -196,16 +208,17 @@ export default function CreatePost() {
               <option value='AB-'>O-</option>
             </Select>
           </div>
-          <ReactQuill
-            theme='snow'
-            placeholder='Write something...'
-            className='h-72 mb-12'
+          <h2>Informacion adicional del paciente</h2>
+          <TextInput
+            type='text'
+            placeholder='Alergias, patologias, etc'
+            id='content'            
             required
-            onChange={(value) => {
-              setFormData({ ...formData, content: value });
-            }}
+            onChange={(e) =>
+              setFormData({ ...formData, content: e.target.value })
+            }
           />
-          <Button type='submit' gradientDuoTone='purpleToPink'>
+          <Button type='submit' >
             Guardar
           </Button>
           {publishError && (
