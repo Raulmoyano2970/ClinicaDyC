@@ -6,7 +6,8 @@ import { PiPrinterLight } from "react-icons/pi";
 import { CiSaveDown2 } from "react-icons/ci";
 import './receta.css'
 
-const ModalReceta = ({children, state, setState,}) => {
+
+const ModalReceta = ({ children, state, setState }) => {
     return (
         <>
             {state &&
@@ -15,9 +16,10 @@ const ModalReceta = ({children, state, setState,}) => {
                         <EncabezadoModal>
                             <h3>Receta</h3>    
                         </EncabezadoModal>
-                        <BotonCerrar onClick={()=> setState(false)}>
+                        <BotonCerrar onClick={() => setState(false)}>
                             <Link>
-                                <svg xmlns="http://www.w3.org/2000/svg" color="white" width="1.5em" height="1.5em" viewBox="-2.5 -2.5 22 22"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg></Link>
+                                <svg xmlns="http://www.w3.org/2000/svg" color="white" width="1.5em" height="1.5em" viewBox="-2.5 -2.5 22 22"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
+                            </Link>
                         </BotonCerrar>
                         <div className="p-2">
                             {children}
@@ -26,9 +28,8 @@ const ModalReceta = ({children, state, setState,}) => {
                 </Overlay>
             }
         </>
-    )
-}
-
+    );
+};
 export default ModalReceta;
 
 const Overlay = styled.div`
