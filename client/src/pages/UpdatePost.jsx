@@ -200,7 +200,7 @@ export default function UpdatePost() {
               }
               value={formData.email}
             />
-                      <TextInput
+            <TextInput
               type='text'
               placeholder='Edad'
               required
@@ -212,7 +212,36 @@ export default function UpdatePost() {
               value={formData.edad}
             />     
           </div>
-
+          <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+            <TextInput
+              type='text'
+              placeholder='Direccion'
+              required
+              id='direccion'
+              className='flex-1'
+              onChange={(e) =>
+                setFormData({ ...formData, direccion: e.target.value })
+              }
+              value={formData.direccion}
+              />
+              <Select
+              onChange={(e) =>
+                setFormData({ ...formData, sanguineo: e.target.value })
+              }
+              value={formData.sanguineo}
+            >
+              <option value='uncategorized'>Sanguineo</option>
+              <option value='A+'>A+</option>
+              <option value='A-'>A-</option>
+              <option value='B+'>B+</option>
+              <option value='B-'>B-</option>
+              <option value='AB+'>AB+</option>
+              <option value='AB-'>AB-</option>
+              <option value='AB+'>O+</option>
+              <option value='AB-'>O-</option>
+            </Select>
+          </div>
+          <h2>Informacion adicional del paciente</h2>
           {/* <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
             <FileInput
               type='file'

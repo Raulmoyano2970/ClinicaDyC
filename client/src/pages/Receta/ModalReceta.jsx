@@ -1,9 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
-import { IoCloudDownloadOutline } from "react-icons/io5";
-import { PiPrinterLight } from "react-icons/pi";
-import { CiSaveDown2 } from "react-icons/ci";
+import { useState } from 'react';
 import './receta.css'
 
 
@@ -14,7 +12,7 @@ const ModalReceta = ({ children, state, setState }) => {
                 <Overlay>
                     <ContenedorModal>
                         <EncabezadoModal>
-                            <h3>Receta</h3>    
+                            <h3>Receta Médica</h3>    
                         </EncabezadoModal>
                         <BotonCerrar onClick={() => setState(false)}>
                             <Link>
@@ -47,13 +45,13 @@ const Overlay = styled.div`
 `;
 
 const ContenedorModal = styled.div`
-    width: 500px;
+    width: 700px;
     min-height: 100px;
     background: #ffffff;
     position: relative;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
-    padding: 20px;
+    padding: 50px;
 `;
 
 const EncabezadoModal = styled.div`

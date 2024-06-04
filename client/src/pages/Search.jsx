@@ -123,7 +123,7 @@ export default function Search() {
           {!loading && posts.length === 0 && (
             <p className='text-xl text-gray-500'>No se encontraron.</p>
           )}
-          {loading && <p className='text-xl text-gray-500'>Loading...</p>}
+          {loading && <p className='text-xl text-gray-500'>Cargando...</p>}
           {!loading &&
             posts.map((post) => <PostCard key={post._id} post={post} />)}
           {showMore && (

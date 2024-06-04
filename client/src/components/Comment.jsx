@@ -113,7 +113,6 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
         pdf.save('download.pdf');
       });
   };
-
   return (
     <div className='flex'>
       <div className='grid grid-cols-12'>
@@ -139,13 +138,13 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               state={estadoModal}
               setState={setEstadoModal}
             >
-              <div ref={printRef}>
-                <div className='flex items-start text-lg font'>
+              <div ref={printRef} className='p-5' >
+                <div className='flex items-start text-lg'>
                   <h3 className='font-semibold pr-1'>Nombre: </h3>
                   <p>{post && post.contenido}</p>
                 </div>
 
-                <div className='flex items-start text-lg font'>
+                <div className='flex items-start text-lg'>
                   <h3 className='font-semibold pr-1'>Rut:</h3>
                   <p>{post && post.title}</p>
                 </div>
@@ -157,10 +156,16 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                   <h3 className='font-semibold pr-1'>Sexo:</h3>
                   <p>{post && post.category}</p>
                 </div>
-                <div className='pt-4'>
+                <div className='flex items-start text-lg font'>
+                  <h3 className='font-semibold pr-1'>Fecha de receta: </h3>
+                  <p>{new Date(comment.updatedAt).toLocaleDateString()}</p>
+                </div>
+                <div className=''>
                   <div className='text-lg'>
                     <div className='flex items-start text-lg font'>
                       <h3 className='font-semibold pr-1'>Diagnostico: </h3>
+                    </div>
+                    <div className='flex items-start text-lg font'>
                       <p>{currentComment && currentComment.content}</p>
                     </div>
                   </div>

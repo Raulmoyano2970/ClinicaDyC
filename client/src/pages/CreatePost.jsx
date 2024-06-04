@@ -181,7 +181,8 @@ export default function CreatePost() {
               }
               />
       
-          </div>  <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+          </div>  
+          <div className='flex flex-col gap-4 sm:flex-row justify-between'>
             <TextInput
               type='text'
               placeholder='Direccion'
@@ -213,7 +214,6 @@ export default function CreatePost() {
             type='text'
             placeholder='Alergias, patologias, etc'
             id='content'            
-            required
             onChange={(e) =>
               setFormData({ ...formData, content: e.target.value })
             }

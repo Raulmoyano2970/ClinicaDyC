@@ -101,7 +101,7 @@ export default function DashComments() {
               <Table.Head>
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
-                <Table.HeadCell>Observaciones</Table.HeadCell>
+                <Table.HeadCell>Diagnostico</Table.HeadCell>
                 {/* <Table.HeadCell>Id receta</Table.HeadCell> */}
               </Table.Head>
               {comments.map((comment) => (

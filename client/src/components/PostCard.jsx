@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card } from "flowbite-react";
-import ImageCard from "/public/assets/patient_8638075.png";
+import ImageCard from "/src/assets/patient_8638075.png";
 
 export default function PostCard({ post }) {
   return (

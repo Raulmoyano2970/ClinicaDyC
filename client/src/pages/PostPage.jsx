@@ -87,31 +87,45 @@ export default function PostPage() {
         {/* CONTAINER CARDS */}
         <div className='grid grid-cols-12 gap-6 my-2 items-start'>
           {/* LEFT CARD */}
-          <div class="col-span-12 flex-colo lg:col-span-4 bg-gray-500 bg-opacity-10 rounded-xl p-6 top-28">
+          <div class="col-span-12 flex-colo lg:col-span-4 bg-gray-500 bg-opacity-10 rounded-xl p-6 top-18">
             <div class="space-y-4 xl:space-y-6">
               <img class="mx-auto rounded-full h-36 w-36" src={'https://static.vecteezy.com/system/resources/previews/021/352/965/original/user-icon-person-profile-avatar-with-plus-symbol-add-user-profile-icon-png.png'} alt="author avatar"/>
               <div class="space-y-2">
-                <div class="flex justify-center items-center flex-col space-y-3 text-lg font-medium leading-6">
-                  <h3 class="text-xl font-semibold">{post && post.contenido}</h3>
+                <div class="flex justify-center items-center flex-col space-y-1 text-lg font-medium leading-6">
+                  <h3 class="text-xl font-semibold text-teal-800 dark:text-white">{post && post.contenido}</h3>
                   <p class="text-gray-500 dark:text-indigo-300">{post && post.title}</p>
                   <p class="text-gray-500 dark:text-indigo-300">{post && post.edad}</p>
-                  <p class="text-gray-500 dark:text-indigo-300">cel: {post && post.celular}</p>
-                  <p class="text-gray-500 dark:text-indigo-300">{post && post.email}</p>
-                  <p class="text-gray-500 dark:text-indigo-300">Tel emergencia: {post && post.celularemergencia}</p>
-                  <Button color='gray' pill size='xs'>
-                    {post && post.category}
-                  </Button>
-                  <Button color='gray' pill size='xs'>
-                    {post && post.sanguineo}
-                  </Button>
-                  <Button color='gray' pill size='xs'>
-                    {post && post.direccion}
-                  </Button>
+                  <div className=''>
+                    <Button className='inline-block m-1' color='gray' pill size='xs'>
+                      {post && post.category}
+                    </Button>
+                    <Button className='inline-block' color='gray' pill size='xs'>
+                      {post && post.sanguineo}
+                    </Button>
+                  </div> 
                   <Button color='gray' pill size='xs'>
                     {post && post.content}
                   </Button>
                 </div>
               </div>
+            </div>
+            <div class="col-span-12 flex-colo lg:col-span-4 bg-gray-500 bg-opacity-10 rounded-xl p-2 flex justify-center items-center flex-col mt-2">
+              <p class=" text-gray-500 dark:text-indigo-300 text-sm">
+                <span className='text-teal-800 dark:text-white'>celular </span>
+                {post && post.celular}
+              </p>
+              <p class="text-gray-500 dark:text-indigo-300 text-sm">
+                <span className='text-teal-800 dark:text-white'>tel emergencia </span>
+                {post && post.celularemergencia}
+              </p>
+              <p class="text-gray-500 dark:text-indigo-300 text-sm flex">
+                <span className='text-teal-800 dark:text-white pr-1'>direccion </span>
+                {post && post.direccion}
+              </p>
+              <p class="text-gray-500 dark:text-indigo-300 text-sm">
+              <span className='text-teal-800 dark:text-white'>email </span>
+                {post && post.email}
+              </p>
             </div>
           </div>
           {/* RIGHT CARD */}
@@ -132,23 +146,23 @@ export default function PostPage() {
                   state= {estadoModal}
                   setState = {setEstadoModal}
                 >
-                  <div className='flex items-start text-lg font'>
+                  <div className='flex items-start text-lg pb-2'>
                       <h1 className='font-semibold pr-1'>Nombre: </h1>
                       <p>{post && post.contenido}</p>
                   </div>
-                  <div className='flex items-start text-lg font'>
+                  <div className='flex items-start text-lg font pb-2'>
                       <h1 className='font-semibold pr-1'>Rut:</h1>
                       <p>{post && post.title}</p>
                   </div>
-                  <div className='flex items-start text-lg font'>
+                  <div className='flex items-start text-lg font pb-2'>
                       <h1 className='font-semibold pr-1'>Edad: </h1>
                       <p> {post && post.edad} </p>
                   </div>
-                  <div className='flex items-start text-lg font'>
+                  <div className='flex items-start text-lg font pb-2'>
                       <h1 className='font-semibold pr-1'>Sexo:</h1>
                       <p>{post && post.category}</p>
                   </div>
-                  <div className='pt-4'>
+                  <div className=''>
                       <div className='text-lg'>
                           <h1 className='font-semibold pb-3'>Diagnostico</h1>
                           <CommentDiagnostic postId={post._id} />
