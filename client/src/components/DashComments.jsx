@@ -2,25 +2,37 @@ import { Modal, Table, Button } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import NavbarIntern from './NavbarIntern';
-import { BiPlus } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-
+import { BiPlus } from 'react-icons/bi';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);
   const [comments, setComments] = useState([]);
+  const [postsMap, setPostsMap] = useState({});
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [commentIdToDelete, setCommentIdToDelete] = useState('');
+
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchCommentsAndPosts = async () => {
       try {
-        const res = await fetch(`/api/comment/getcomments`);
-        const data = await res.json();
-        if (res.ok) {
-          setComments(data.comments);
-          if (data.comments.length < 9) {
+        const commentsRes = await fetch(`/api/comment/getcomments`);
+        const commentsData = await commentsRes.json();
+
+        const postsRes = await fetch(`/api/post/getposts`);
+        const postsData = await postsRes.json();
+
+        if (commentsRes.ok && postsRes.ok) {
+          setComments(commentsData.comments);
+
+          const postsMap = postsData.posts.reduce((map, post) => {
+            map[post._id] = post.contenido;
+            return map;
+          }, {});
+          
+          setPostsMap(postsMap);
+
+          if (commentsData.comments.length < 9) {
             setShowMore(false);
           }
         }
@@ -28,8 +40,9 @@ export default function DashComments() {
         console.log(error.message);
       }
     };
+
     if (currentUser.isAdmin) {
-      fetchComments();
+      fetchCommentsAndPosts();
     }
   }, [currentUser._id]);
 
@@ -87,9 +100,9 @@ export default function DashComments() {
             <Table hoverable className='shadow-md'>
               <Table.Head>
                 <Table.HeadCell>Creado el</Table.HeadCell>
-                <Table.HeadCell>Observaciones</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
-                <Table.HeadCell>Id receta</Table.HeadCell>
+                <Table.HeadCell>Observaciones</Table.HeadCell>
+                {/* <Table.HeadCell>Id receta</Table.HeadCell> */}
               </Table.Head>
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
@@ -97,9 +110,10 @@ export default function DashComments() {
                     <Table.Cell>
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
+                    <Table.Cell>{postsMap[comment.postId]}</Table.Cell>
+                    {/* <Table.Cell>{comment.postId}</Table.Cell> */}
                     <Table.Cell>{comment.content}</Table.Cell>
-                    <Table.Cell>{comment.userId}</Table.Cell>
-                    <Table.Cell>{comment.postId}</Table.Cell>
+                   
                       {/* <Table.Cell>
                       <span
                         onClick={() => {
@@ -152,7 +166,6 @@ export default function DashComments() {
           </Modal.Body>
         </Modal>
       </div>
-        
     </div>
   );
 }
