@@ -1,9 +1,7 @@
-import React from "react"
-import styled from 'styled-components'
-import { Link } from "react-router-dom"
-import { useState } from 'react';
-import './receta.css'
-
+import React from "react";
+import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import './receta.css';
 
 const ModalReceta = ({ children, state, setState }) => {
     return (
@@ -19,9 +17,9 @@ const ModalReceta = ({ children, state, setState }) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" color="white" width="1.5em" height="1.5em" viewBox="-2.5 -2.5 22 22"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
                             </Link>
                         </BotonCerrar>
-                        <div className="p-2">
+                        <ContenidoModal>
                             {children}
-                        </div>
+                        </ContenidoModal>
                     </ContenedorModal>
                 </Overlay>
             }
@@ -45,13 +43,14 @@ const Overlay = styled.div`
 `;
 
 const ContenedorModal = styled.div`
-    width: 700px;
-    min-height: 100px;
+    width: 900px;
+    max-height: 90vh; /* Adjust this value as needed */
     background: #ffffff;
     position: relative;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
     padding: 50px;
+    overflow-y: auto; /* Add this line to enable vertical scrolling */
 `;
 
 const EncabezadoModal = styled.div`
@@ -86,4 +85,9 @@ const BotonCerrar = styled.div`
     &:hover{
         background: #014646;
     }
+`;
+
+const ContenidoModal = styled.div`
+    max-height: calc(80vh - 140px); /* Adjust based on the padding and other elements' heights */
+    overflow-y: auto;
 `;

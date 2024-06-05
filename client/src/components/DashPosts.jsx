@@ -6,6 +6,8 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import NavbarIntern from './NavbarIntern';
 import { BiPlus } from 'react-icons/bi';
 
+
+
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
   const [userPosts, setUserPosts] = useState([]);
@@ -74,10 +76,11 @@ export default function DashPosts() {
 
   return (
     <div className='p-4 md:mx-auto'>
-      <div>
+      <div className=" flex ">
         <h1 className='p-5 text-sm sm:text-xl font-semibold'>
           Pacientes
         </h1>
+      <NavbarIntern/>
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
         {currentUser.isAdmin && userPosts.length > 0 ? (

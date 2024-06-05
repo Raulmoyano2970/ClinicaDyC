@@ -175,7 +175,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                   <h3 className='flex justify-center font-semibold p-3'>Firma Medico</h3>
                 </div>
               </div>
-              <div className="download pt-2">
+              <div className="download pt-2 flex justify-center items-center">
                 <button 
                   className="bg-teal-500 text-white flex-rows gap-3 rounded-lg px-4 py-3 text-sm hover:bg-teal-800 transition duration-0 hover:duration-700"
                   onClick={handleDownloadPDF}

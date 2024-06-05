@@ -53,19 +53,21 @@ export default function NavbarIntern() {
   return (
     <div>
       <Navbar>
-        <form onSubmit={handleSubmit}>
+        <form 
+        onSubmit={handleSubmit} className="flex-grow">
           <TextInput
             type='text'
             placeholder='Buscar pacientes, recetas'
             rightIcon={AiOutlineSearch}
-            className='hidden lg:inline'
+            className='w-full max-w-xs' 
+            style={{ width: '250px' }}  
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            />
+          />
         </form>
-        <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+        {/* <Button className='w-12 h-10 lg:hidden' color='gray' pill>
           <AiOutlineSearch />
-        </Button>
+        </Button> */}
       </Navbar>
     </div>
   );
