@@ -76,7 +76,7 @@ export default function DashPosts() {
 
   return (
     <div className='p-4 md:mx-auto'>
-      <div className=" flex ">
+      <div className=" flex justify-between">
         <h1 className='p-5 text-sm sm:text-xl font-semibold'>
           Pacientes
         </h1>

@@ -63,7 +63,7 @@ export default function Header() {
           Coloproctología
         </span>
       </Link>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
           placeholder='Buscar pacientes...'
@@ -72,7 +72,7 @@ export default function Header() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </form>
+      </form> */}
       <Button className='w-12 h-10 lg:hidden' pill>
         <AiOutlineSearch />
       </Button>

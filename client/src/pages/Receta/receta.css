@@ -21,10 +21,10 @@ display: none;
 }
 .imghome{
     background-image: url("../../assets/tipos-cirujanos-large.jpg") !important;
-    min-height: 85.6vh !important;
+    height: 85.6vh !important;
 }
 
 .imgsignin{
     background-image: url("../../assets/bg-medical-image.jpg") !important;
-    min-height: 85.6vh !important;
+    height: 85.6vh !important;
 }
