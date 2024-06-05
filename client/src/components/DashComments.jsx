@@ -107,20 +107,20 @@ export default function DashComments() {
             whileInView={'show'}
             viewport={{ once: false, amount: 0.7 }}
         className='p-5 text-sm sm:text-xl font-semibold'>Recetas</motion.h1>
-                <motion.div
-         variants={fadeIn('left', 0.5)}
-         initial='hidden'
-         whileInView={'show'}
-         viewport={{ once: false, amount: 0.7 }}
+        <motion.div
+          variants={fadeIn('left', 0.5)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.7 }}
         >
-      <NavbarIntern />
+          <NavbarIntern />
       </motion.div>
       </div>
 
-      <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
+      <div className='overflow-x-auto'>
         {currentUser.isAdmin && comments.length > 0 ? (
           <>
-            <Table hoverable className='shadow-md'>
+            <Table hoverable className='shadow-md table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
               <Table.Head>
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
@@ -130,13 +130,12 @@ export default function DashComments() {
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
-                    <Table.Cell>{postsMap[comment.postId]}</Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">{postsMap[comment.postId]}</Table.Cell>
                     {/* <Table.Cell>{comment.postId}</Table.Cell> */}
-                    <Table.Cell>{truncateContent(comment.content, 6)}</Table.Cell>
-                   
+                    <Table.Cell className="break-words whitespace-normal">{truncateContent(comment.content, 6)}</Table.Cell>
                     {/* <Table.Cell>
                       <span
                         onClick={() => {

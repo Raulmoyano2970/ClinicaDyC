@@ -1,13 +1,10 @@
 import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { FaMoon, FaSun } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleTheme } from '../redux/theme/themeSlice';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
-import { AkarIconsSignOut } from './Icons/singoutLogo';
-import { SolarUserRoundedBroken } from './Icons/userLogo'
+
 
 export default function NavbarIntern() {
   const path = useLocation().pathname;
@@ -57,7 +54,7 @@ export default function NavbarIntern() {
         onSubmit={handleSubmit} className="flex-grow">
           <TextInput
             type='text'
-            placeholder='Buscar pacientes, recetas'
+            placeholder='Buscar pacientes...'
             rightIcon={AiOutlineSearch}
             className='w-full max-w-xs' 
             style={{ width: '250px' }}  
@@ -65,9 +62,6 @@ export default function NavbarIntern() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </form>
-        {/* <Button className='w-12 h-10 lg:hidden' color='gray' pill>
-          <AiOutlineSearch />
-        </Button> */}
       </Navbar>
     </div>
   );

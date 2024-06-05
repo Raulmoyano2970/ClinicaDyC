@@ -7,8 +7,7 @@ import NavbarIntern from './NavbarIntern';
 import { BiPlus } from 'react-icons/bi';
 import { fadeIn } from '../variants';
 import {motion} from "framer-motion"
-
-
+import '../pages/Receta/receta.css'
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
@@ -77,91 +76,91 @@ export default function DashPosts() {
   };
 
   return (
-    <div className='p-4 md:mx-auto'>
-      <div className=" flex justify-between">
+    <div className='p-4 md:mx-auto '>
+      <div className=" flex justify-between min-w-full">
         <motion.h1
           variants={fadeIn('right', 0.5)}
           initial='hidden'
           whileInView={'show'}
           viewport={{ once: false, amount: 0.7 }}
-        className='p-5 text-sm sm:text-xl font-semibold'>
+          className='p-5 text-sm sm:text-xl font-semibold'>
           Pacientes
         </motion.h1>
         <motion.div
-         variants={fadeIn('left', 0.5)}
-         initial='hidden'
-         whileInView={'show'}
-         viewport={{ once: false, amount: 0.7 }}
-        >
-      <NavbarIntern />
-      </motion.div>
+          variants={fadeIn('left', 0.5)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.7 }}
+          >
+        <NavbarIntern />
+        </motion.div>
       </div>
-      <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
+      <div className="overflow-x-auto">
         {currentUser.isAdmin && userPosts.length > 0 ? (
           <>
-            <Table hoverable className='shadow-md'>
+            <Table hoverable className="table-fixed min-w-full shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
               <Table.Head>
                 <Table.HeadCell>Nombre</Table.HeadCell>
-                {/* <Table.HeadCell>Imagen</Table.HeadCell> */}
                 <Table.HeadCell>Rut</Table.HeadCell>
-                <Table.HeadCell>edad</Table.HeadCell>
+                <Table.HeadCell>Edad</Table.HeadCell>
                 <Table.HeadCell>Sexo</Table.HeadCell>
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell></Table.HeadCell>
-                <Table.HeadCell>
-                </Table.HeadCell>
-                <Table.HeadCell>
-                </Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {userPosts.map((post) => (
-                <Table.Body className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell className='font-medium text-gray-900 dark:text-white'>
+                <Table.Body key={post._id} className="divide-y">
+                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                    <Table.Cell className="font-medium text-gray-900 dark:text-white break-words whitespace-normal">
                       <Link to={`/post/${post.slug}`}>
-                      {post.contenido}
+                        {post.contenido}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <Link to={`/post/${post.slug}`}>
                         {post.title}
-                      </Link></Table.Cell>
-                    <Table.Cell>
+                      </Link>
+                    </Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <Link to={`/post/${post.slug}`}>
                         {post.edad}
-                      </Link></Table.Cell>
-                    <Table.Cell>
+                      </Link>
+                    </Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <Link to={`/post/${post.slug}`}>
                         {post.category}
-                      </Link></Table.Cell>
-                    <Table.Cell>
+                      </Link>
+                    </Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <Link to={`/post/${post.slug}`}>
                         {new Date(post.updatedAt).toLocaleDateString()}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell>
-                      <Link 
+                    <Table.Cell className="break-words whitespace-normal">
+                      <Link
                         to={`/post/${post.slug}`}
-                        className='text-teal-500 hover:underline'
-                        >
+                        className="text-teal-500 hover:underline"
+                      >
                         Ver
                       </Link>
                     </Table.Cell>
-                    <Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <Link
-                        className='text-teal-500 hover:underline'
+                        className="text-teal-500 hover:underline"
                         to={`/update-post/${post._id}`}
-                        >
+                      >
                         <span>Editar</span>
                       </Link>
                     </Table.Cell>
-                    <Table.Cell>
+                    <Table.Cell className="break-words whitespace-normal">
                       <span
                         onClick={() => {
                           setShowModal(true);
                           setPostIdToDelete(post._id);
                         }}
-                        className='font-medium text-red-500 hover:underline cursor-pointer'
-                        >
+                        className="font-medium text-red-500 hover:underline cursor-pointer"
+                      >
                         Eliminar
                       </span>
                     </Table.Cell>
@@ -171,34 +170,34 @@ export default function DashPosts() {
             </Table>
             {showMore && (
               <button
-              onClick={handleShowMore}
-              className='w-full text-teal-500 self-center text-sm py-7'
+                onClick={handleShowMore}
+                className="w-full text-teal-500 self-center text-sm py-7"
               >
-                Mostrar mas
+                Mostrar más
               </button>
             )}
           </>
         ) : (
-          <p>No hay un registro de pacientes aun</p>
+          <p>No hay un registro de pacientes aún</p>
         )}
         <Modal
           show={showModal}
           onClose={() => setShowModal(false)}
           popup
-          size='md'
-          >
+          size="md"
+        >
           <Modal.Header />
           <Modal.Body>
-            <div className='text-center'>
-              <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
-              <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
+            <div className="text-center">
+              <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
+              <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400">
                 Esta por eliminar este paciente completamente del registro
               </h3>
-              <div className='flex justify-center gap-4'>
-                <Button color='failure' onClick={handleDeletePost}>
-                  Si, eliminar
+              <div className="flex justify-center gap-4">
+                <Button color="failure" onClick={handleDeletePost}>
+                  Sí, eliminar
                 </Button>
-                <Button color='gray' onClick={() => setShowModal(false)}>
+                <Button color="gray" onClick={() => setShowModal(false)}>
                   No, cancelar
                 </Button>
               </div>
@@ -211,19 +210,10 @@ export default function DashPosts() {
         >
         <button class="inline-flex items-center justify-center w-16 h-16 mr-2 text-indigo-100 transition-colors duration-150 bg-teal-600 rounded-full focus:shadow-outline hover:bg-teal-800 fixed bottom-8 right-12">
           <svg class="w-6 h-6 fill-current" viewBox="0 0 16 17">
-            {/* <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd">
-            </path> */}
             <BiPlus></BiPlus>
           </svg>
         </button>
       </Link>
-      {/* <Link
-        to={'/create-post'}
-        // className="w-16 button-fb h-16 border-2 border-zinc-800 z-50 bg-subMain text-gray rounded-full flex-colo fixed bottom-8 right-12 dark:text-white dark:border-white"
-        classname="inline-flex items-center justify-center w-16 h-16 mr-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-full focus:shadow-outline hover:bg-indigo-800 fixed bottom-8 right-12"
-      >
-          <BiPlus className="text-2xl"/>
-      </Link> */}
     </div>
   );
 }

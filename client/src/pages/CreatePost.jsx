@@ -16,6 +16,7 @@ import DashSidebar from '../components/DashSidebar';
 import { Link } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import './Receta/receta.css'
+import DatePickerCalendar from '../components/DatePicker';
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
@@ -171,8 +172,15 @@ export default function CreatePost() {
                 setFormData({ ...formData, email: e.target.value })
               }
               />
+            {/* <DatePickerCalendar
+            type='text'
+            required
+            id='edad'
+            className='flex-1'
+            onChange={(e) =>
+              setFormData({ ...formData, edad: e.target.value })
+            }/> */}
             <TextInput
-              type='text'
               placeholder='Fecha Nacimiento'
               required
               id='edad'
