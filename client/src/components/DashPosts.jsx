@@ -98,7 +98,7 @@ export default function DashPosts() {
       <div className="overflow-x-auto">
         {currentUser.isAdmin && userPosts.length > 0 ? (
           <>
-            <Table hoverable className="table-fixed min-w-full shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
+            <Table hoverable className="min-w-full shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
               <Table.Head>
                 <Table.HeadCell>Nombre</Table.HeadCell>
                 <Table.HeadCell>Rut</Table.HeadCell>
@@ -112,32 +112,32 @@ export default function DashPosts() {
               {userPosts.map((post) => (
                 <Table.Body key={post._id} className="divide-y">
                   <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="font-medium text-gray-900 dark:text-white break-words whitespace-normal">
+                    <Table.Cell className="font-medium text-gray-900 dark:text-white">
                       <Link to={`/post/${post.slug}`}>
                         {post.contenido}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link to={`/post/${post.slug}`}>
                         {post.title}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link to={`/post/${post.slug}`}>
                         {post.edad}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link to={`/post/${post.slug}`}>
                         {post.category}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link to={`/post/${post.slug}`}>
                         {new Date(post.updatedAt).toLocaleDateString()}
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link
                         to={`/post/${post.slug}`}
                         className="text-teal-500 hover:underline"
@@ -145,7 +145,7 @@ export default function DashPosts() {
                         Ver
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <Link
                         className="text-teal-500 hover:underline"
                         to={`/update-post/${post._id}`}
@@ -153,7 +153,7 @@ export default function DashPosts() {
                         <span>Editar</span>
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       <span
                         onClick={() => {
                           setShowModal(true);
