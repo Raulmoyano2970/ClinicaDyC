@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { FaCheck, FaTimes } from 'react-icons/fa';
+import { fadeIn } from '../variants';
+import {motion} from "framer-motion"
 
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
@@ -64,7 +66,12 @@ export default function DashUsers() {
   };
 
   return (
-    <div className='p-4 md:mx-auto'>
+    <motion.div
+    variants={fadeIn("left", 0.5)} 
+    initial="hidden" 
+    whileInView={"show"} 
+    viewport={{once: false, amount: 0.7}} 
+    className='p-4 md:mx-auto'>
       <div>
         <h1 className='p-5 text-sm sm:text-xl font-semibold'>
           Usuarios
@@ -155,6 +162,6 @@ export default function DashUsers() {
           </Modal.Body>
         </Modal>
       </div>
-    </div>
+    </motion.div>
   );
 }

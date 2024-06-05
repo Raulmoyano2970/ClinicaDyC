@@ -21,6 +21,8 @@ import {
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { fadeIn } from '../variants';
+import {motion} from "framer-motion"
 
 export default function DashProfile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
@@ -164,7 +166,13 @@ export default function DashProfile() {
     }
   };
   return (
-    <div className='max-w-lg mx-auto p-3 w-full'>
+    <motion.div
+    variants={fadeIn("right", 0.5)} 
+        initial="hidden" 
+        whileInView={"show"} 
+        viewport={{once: false, amount: 0.7}} 
+    
+    className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-2xl'>Perfil</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
@@ -287,6 +295,6 @@ export default function DashProfile() {
           </div>
         </Modal.Body>
       </Modal>
-    </div>
+    </motion.div>
   );
 }

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import NavbarIntern from './NavbarIntern';
 import { BiPlus } from 'react-icons/bi';
+import { fadeIn } from '../variants';
+import {motion} from "framer-motion"
 
 
 
@@ -77,10 +79,22 @@ export default function DashPosts() {
   return (
     <div className='p-4 md:mx-auto'>
       <div className=" flex justify-between">
-        <h1 className='p-5 text-sm sm:text-xl font-semibold'>
+        <motion.h1
+          variants={fadeIn('right', 0.5)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.7 }}
+        className='p-5 text-sm sm:text-xl font-semibold'>
           Pacientes
-        </h1>
-      <NavbarIntern/>
+        </motion.h1>
+        <motion.div
+         variants={fadeIn('left', 0.5)}
+         initial='hidden'
+         whileInView={'show'}
+         viewport={{ once: false, amount: 0.7 }}
+        >
+      <NavbarIntern />
+      </motion.div>
       </div>
       <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
         {currentUser.isAdmin && userPosts.length > 0 ? (

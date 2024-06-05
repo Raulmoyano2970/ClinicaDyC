@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 import NavbarIntern from './NavbarIntern'
 import { SolarUsersGroupRoundedBroken } from './Icons/patientsLogo2';
 import { BsArrowDownLeft, BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs';
+import { fadeIn } from '../variants';
+import {motion} from "framer-motion"
 
 export default function DashboardComp() {
   const [users, setUsers] = useState([]);
@@ -73,7 +75,12 @@ export default function DashboardComp() {
   return (
     <div className='p-4 md:mx-auto'>
       {/* Boxes */}
-      <div className='flex-wrap flex md:w-auto gap-10 justify-center'>
+      <motion.div
+      variants={fadeIn("left", 0.5)} 
+      initial="hidden" 
+      whileInView={"show"} 
+      viewport={{once: false, amount: 0.7}} 
+      className='flex-wrap flex md:w-auto gap-10 justify-center'>
         {/* Box Users */}
         <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-80 w-full rounded-md border-2 border-teal-700/60'>
           <div className='flex justify-between'>
@@ -129,9 +136,15 @@ export default function DashboardComp() {
             <div className='text-gray-500'>Ultimo mes</div>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* box pacientes recientes */}
-      <div className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
+      <motion.div
+      variants={fadeIn("right", 0.5)} 
+      initial="hidden" 
+      whileInView={"show"} 
+      viewport={{once: false, amount: 0.7}}  
+      
+      className='flex flex-wrap py-3 gap-12 mx-auto justify-center'>
         <div className='flex flex-col w-full md:w-80 border-2 border-teal-700/60 p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between p-3'>
             <h1 className='text-center p-2 font-semibold '>Usuarios</h1>
@@ -213,7 +226,7 @@ export default function DashboardComp() {
               ))}
           </Table>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

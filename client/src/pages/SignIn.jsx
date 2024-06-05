@@ -1,6 +1,8 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { fadeIn } from '../variants';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   signInStart,
@@ -46,7 +48,13 @@ export default function SignIn() {
     <div className="bg-cover bg-left flex items-center imgsignin">
       <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5 pr-5'>
         {/* left */}
-        <div className='flex-1 pr-10'>
+        <motion.div
+               variants={fadeIn('right', 0.5)}
+               initial='hidden'
+               whileInView={'show'}
+               viewport={{ once: false, amount: 0.7 }}
+        
+        className='flex-1 pr-10'>
           <Link
             to='/'
             className='self-center whitespace-nowrap text-sm sm:text-3xl font-semibold dark:text-white'
@@ -62,10 +70,15 @@ export default function SignIn() {
             This is a demo project. You can sign in with your email and password
             or with Google.
           </p> */}
-        </div>
+        </motion.div>
         {/* right */}
 
-        <div className='flex-1'>
+        <motion.div
+               variants={fadeIn('left', 0.5)}
+               initial='hidden'
+               whileInView={'show'}
+               viewport={{ once: false, amount: 0.7 }}
+        className='flex-1'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
               <Label value='Email' className='text-white'/>
@@ -111,7 +124,7 @@ export default function SignIn() {
               {errorMessage}
             </Alert>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

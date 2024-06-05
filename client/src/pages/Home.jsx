@@ -3,6 +3,8 @@ import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
 import './Receta/receta.css'
+import { fadeIn } from '../variants';
+import {motion} from "framer-motion"
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -18,10 +20,20 @@ export default function Home() {
   return (
     <div className="bg-cover bg-center flex items-center justify-center imghome home">
       <div className="flex flex-col gap-6 p-6 px-3 max-w-6xl mx-auto text-center">
-        <h1 className='text-white text-3xl font-bold lg:text-6xl'>Somos DyC Coloproctologia</h1>
-        <p className='text-white text-xs sm:text-sm'>
+        <motion.h1 
+        variants={fadeIn("down", 0.9)} 
+        initial="hidden" 
+        whileInView={"show"} 
+        viewport={{once: false, amount: 0.7}} 
+        className='text-white text-3xl font-bold lg:text-6xl'>Somos DyC Coloproctologia</motion.h1>
+        <motion.p 
+        variants={fadeIn("up", 0.9)} 
+        initial="hidden" 
+        whileInView={"show"} 
+        viewport={{once: false, amount: 0.7}} 
+        className='text-white text-xs sm:text-sm'>
           Nuestra sociedad dedicada a la investigacion de la medicina actual
-        </p>
+        </motion.p>
       </div>
       {/* <div className='p-3 bg-amber-100 dark:bg-slate-700'>
         <CallToAction />

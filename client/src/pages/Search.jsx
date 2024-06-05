@@ -2,6 +2,9 @@ import { Button, Select, TextInput } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostCard from '../components/PostCard';
+import { fadeIn } from '../variants';
+import { motion } from 'framer-motion';
+
 
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -115,7 +118,12 @@ export default function Search() {
           </Button>
         </form>
       </div>
-      <div className='w-full'>
+      <motion.div
+      variants={fadeIn('down', 0.5)}
+      initial='hidden'
+      whileInView={'show'}
+      viewport={{ once: false, amount: 0.7 }}
+      className='w-full'>
         <h1 className='text-2xl font-semibold border-gray-500 p-3 mt-2'>
           Resultados
         </h1>
@@ -135,7 +143,7 @@ export default function Search() {
             </button>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
