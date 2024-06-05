@@ -41,3 +41,9 @@ display: none;
     min-height: 85vh;
 }
 
+
+@media (min-width: 768px) and (max-width: 1123px) {
+    .arreglocoment {
+      width: 73% !important;
+    }
+}

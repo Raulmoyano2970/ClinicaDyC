@@ -76,7 +76,7 @@ export default function DashPosts() {
   };
 
   return (
-    <div className='p-4 md:mx-auto'>
+    <div className='p-4 md:mx-auto arreglocoment'>
       <div className="flex justify-between">
         <motion.h1
           variants={fadeIn('right', 0.5)}
