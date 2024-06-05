@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import DashSidebar from '../components/DashSidebar';
 import { Link } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
+import './Receta/receta.css'
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
@@ -88,8 +89,8 @@ export default function CreatePost() {
     }
   };
   return (
-    <>
-      <div className='min-h-screen flex flex-col md:flex-row'>
+    <div className='createView'>
+      <div className='flex flex-col md:flex-row'>
         <div className='md:w-56'>
           {/* Sidebar */}
           <DashSidebar />
@@ -230,6 +231,6 @@ export default function CreatePost() {
       </div>
       </div>
       
-    </>
+    </div>
   );
 }

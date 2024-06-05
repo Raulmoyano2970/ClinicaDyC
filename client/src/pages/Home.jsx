@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
+import './Receta/receta.css'
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,7 @@ export default function Home() {
     fetchPosts();
   }, []);
   return (
-    <div className="bg-[url('/assets/bg-medical-image.jpg')] bg-cover bg-center flex items-center justify-center imghome">
+    <div className="bg-cover bg-center flex items-center justify-center imghome home">
       <div className="flex flex-col gap-6 p-6 px-3 max-w-6xl mx-auto text-center">
         <h1 className='text-white text-3xl font-bold lg:text-6xl'>Somos DyC Coloproctologia</h1>
         <p className='text-white text-xs sm:text-sm'>

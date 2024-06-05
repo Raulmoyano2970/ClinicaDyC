@@ -8,6 +8,7 @@ import DashComments from '../components/DashComments';
 import DashboardComp from '../components/DashboardComp';
 import Header from '../components/Header'
 import CreatePost from './CreatePost';
+import './Receta/receta.css'
 
 export default function Dashboard() {
   const location = useLocation();
@@ -21,7 +22,7 @@ export default function Dashboard() {
   }, [location.search]);
 
   return (
-    <div className='min-h-screen flex flex-col md:flex-row'>
+    <div className='dashboard flex flex-col md:flex-row'>
       <div className='md:w-56'>
         {/* Sidebar */}
         <DashSidebar />

@@ -8,6 +8,7 @@ import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
 import { AkarIconsSignOut } from './Icons/singoutLogo';
 import { SolarUserRoundedBroken } from './Icons/userLogo'
+import '../pages/Receta/receta.css'
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -51,7 +52,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className='border-b-2'>
+    <Navbar className='border-b-2 flex items-center header'>
       <Link
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -73,9 +74,9 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form> */}
-      <Button className='w-12 h-10 lg:hidden' pill>
+      {/* <Button className='w-12 h-10 lg:hidden' pill>
         <AiOutlineSearch />
-      </Button>
+      </Button> */}
       <div className='flex gap-5 p-5 md:order-2 hover:border-0'>
         <Link
           className='w-12 h-12 hidden sm:inline bg-teal-500 rounded-full'
@@ -110,8 +111,8 @@ export default function Header() {
         </Dropdown>
       ) : (
         <>
-          <Link to='/sign-in'>
-            <Button  >
+          <Link className='flex ' to='/sign-in'>
+            <Button className='bg-teal-500 dark:bg-teal-500' >
               Iniciar sesion
             </Button>
           </Link>

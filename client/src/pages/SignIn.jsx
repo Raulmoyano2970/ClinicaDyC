@@ -43,7 +43,7 @@ export default function SignIn() {
     }
   };
   return (
-    <div className="bg-cover bg-center flex items-center justify-center imgsignin">
+    <div className="bg-cover bg-left flex items-center imgsignin">
       <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5 pr-5'>
         {/* left */}
         <div className='flex-1 pr-10'>
@@ -54,7 +54,7 @@ export default function SignIn() {
             <span className='px-2 py-1 bg-gradient-to-r from-teal-400 via-teal-550 to-teal-800 rounded-lg text-white'>
               DyC
             </span>
-            <span className='p-1'>
+            <span className='p-1 text-white'>
               Coloproctología
             </span>
           </Link>
@@ -68,16 +68,16 @@ export default function SignIn() {
         <div className='flex-1'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
-              <Label value='Email' />
+              <Label value='Email' className='text-white'/>
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='email'
                 id='email'
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <Label value='Contraseña' />
+            <div >
+              <Label value='Contraseña' className='text-white border-none dark:border-none'/>
               <TextInput
                 type='password'
                 placeholder='********'
@@ -88,6 +88,7 @@ export default function SignIn() {
             <Button
               type='submit'
               disabled={loading}
+              className='bg-teal-500 dark:bg-teal-500'  
             >
               {loading ? (
                 <>

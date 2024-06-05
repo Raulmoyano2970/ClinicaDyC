@@ -118,8 +118,8 @@ export default function PostPage() {
                 <span className='text-teal-800 dark:text-white'>tel emergencia </span>
                 {post && post.celularemergencia}
               </p>
-              <p class="text-gray-500 dark:text-indigo-300 text-sm flex">
-                <span className='text-teal-800 dark:text-white pr-1'>direccion </span>
+              <p class="text-gray-500 dark:text-indigo-300 text-sm text-center	">
+                <span className='text-teal-800 dark:text-white text-right'>direccion </span>
                 {post && post.direccion}
               </p>
               <p class="text-gray-500 dark:text-indigo-300 text-sm">
