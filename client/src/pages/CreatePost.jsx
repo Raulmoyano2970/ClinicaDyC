@@ -172,15 +172,15 @@ export default function CreatePost() {
                 setFormData({ ...formData, email: e.target.value })
               }
               />
-            {/* <DatePickerCalendar
+            <DatePickerCalendar
             type='text'
             required
             id='edad'
             className='flex-1'
             onChange={(e) =>
               setFormData({ ...formData, edad: e.target.value })
-            }/> */}
-            <TextInput
+            }/>
+            {/* <TextInput
               placeholder='Fecha Nacimiento'
               required
               id='edad'
@@ -188,7 +188,7 @@ export default function CreatePost() {
               onChange={(e) =>
                 setFormData({ ...formData, edad: e.target.value })
               }
-              />
+              /> */}
       
           </div>  
           <div className='flex flex-col gap-4 sm:flex-row justify-between'>

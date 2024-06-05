@@ -98,7 +98,7 @@ export default function DashComments() {
   };
 
   return (
-    <div className='p-4 md:mx-auto recetasdash'
+    <div className='p-4 md:mx-auto'
     >
       <div className='flex justify-between'>
         <motion.h1
@@ -120,7 +120,7 @@ export default function DashComments() {
       <div className='overflow-x-auto'>
         {currentUser.isAdmin && comments.length > 0 ? (
           <>
-            <Table hoverable className='shadow-md table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
+            <Table hoverable className='shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
               <Table.Head>
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
@@ -130,12 +130,12 @@ export default function DashComments() {
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell className="break-words whitespace-normal">
+                    <Table.Cell className="">
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
-                    <Table.Cell className="break-words whitespace-normal">{postsMap[comment.postId]}</Table.Cell>
+                    <Table.Cell className="">{postsMap[comment.postId]}</Table.Cell>
                     {/* <Table.Cell>{comment.postId}</Table.Cell> */}
-                    <Table.Cell className="break-words whitespace-normal">{truncateContent(comment.content, 6)}</Table.Cell>
+                    <Table.Cell className="">{truncateContent(comment.content, 6)}</Table.Cell>
                     {/* <Table.Cell>
                       <span
                         onClick={() => {
