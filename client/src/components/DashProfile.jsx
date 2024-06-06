@@ -242,7 +242,6 @@ export default function DashProfile() {
         />
         <Button
           type='submit'
-          outline
           disabled={loading || imageFileUploading}
         >
           {loading ? 'Loading...' : 'Guardar'}

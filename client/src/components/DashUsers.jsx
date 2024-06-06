@@ -81,7 +81,7 @@ export default function DashUsers() {
         {currentUser.isAdmin && users.length > 0 ? (
           <>
             <Table hoverable className='shadow-md'>
-              <Table.Head>
+              <Table.Head className='text-teal-700 border-1'>
                 <Table.HeadCell>Fecha</Table.HeadCell>
                 <Table.HeadCell>Imagen</Table.HeadCell>
                 <Table.HeadCell>Usuario</Table.HeadCell>
@@ -90,7 +90,7 @@ export default function DashUsers() {
               </Table.Head>
               {users.map((user) => (
                 <Table.Body className='divide-y' key={user._id}>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800 hover:bg-teal-800/10'>
                     <Table.Cell>
                       {new Date(user.createdAt).toLocaleDateString()}
                     </Table.Cell>

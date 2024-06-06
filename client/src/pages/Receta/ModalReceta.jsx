@@ -43,7 +43,7 @@ const Overlay = styled.div`
 `;
 
 const ContenedorModal = styled.div`
-    width: 900px;
+    width: 700px;
     max-height: 90vh; /* Adjust this value as needed */
     background: #ffffff;
     position: relative;

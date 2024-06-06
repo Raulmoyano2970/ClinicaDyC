@@ -121,22 +121,23 @@ export default function DashComments() {
         {currentUser.isAdmin && comments.length > 0 ? (
           <>
             <Table hoverable className='shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
-              <Table.Head>
+              <Table.Head className='text-teal-700 border-1'>
                 <Table.HeadCell>Creado el</Table.HeadCell>
                 <Table.HeadCell>Paciente</Table.HeadCell>
                 <Table.HeadCell>Diagnostico</Table.HeadCell>
+                <Table.HeadCell></Table.HeadCell>
                 {/* <Table.HeadCell>Id receta</Table.HeadCell> */}
               </Table.Head>
               {comments.map((comment) => (
                 <Table.Body className='divide-y' key={comment._id}>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800 hover:bg-teal-800/10'>
                     <Table.Cell className="">
                       {new Date(comment.updatedAt).toLocaleDateString()}
                     </Table.Cell>
                     <Table.Cell className="">{postsMap[comment.postId]}</Table.Cell>
                     {/* <Table.Cell>{comment.postId}</Table.Cell> */}
                     <Table.Cell className="">{truncateContent(comment.content, 6)}</Table.Cell>
-                    {/* <Table.Cell>
+                    <Table.Cell>
                       <span
                         onClick={() => {
                           setShowModal(true);
@@ -146,7 +147,7 @@ export default function DashComments() {
                       >
                         Eliminar
                       </span>
-                    </Table.Cell> */}
+                    </Table.Cell>
                   </Table.Row>
                 </Table.Body>
               ))}

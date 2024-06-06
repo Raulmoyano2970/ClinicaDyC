@@ -4,7 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
-
+import '../pages/Receta/receta.css'
 
 export default function NavbarIntern() {
   const path = useLocation().pathname;
@@ -49,7 +49,7 @@ export default function NavbarIntern() {
 
   return (
     <div>
-      <Navbar>
+      <Navbar className='searchNav'>
         <form 
         onSubmit={handleSubmit} className="flex-grow">
           <TextInput

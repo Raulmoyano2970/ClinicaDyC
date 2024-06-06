@@ -5,8 +5,11 @@ export const create = async (req, res, next) => {
   if (!req.user.isAdmin) {
     return next(errorHandler(403, 'You are not allowed to create a post'));
   }
-  if (!req.body.title || !req.body.content || !req.body.contenido) {
-    return next(errorHandler(400, 'Please provide all required fields'));
+  const requiredFields = ['title', 'content', 'contenido', 'celular', 'celularemergencia', 'email', 'edad', 'direccion', 'sanguineo'];
+  for (const field of requiredFields) {
+    if (!req.body[field]) {
+      return next(errorHandler(400, `Por favor completar todos los campos: completar ${field} `));
+    }
   }
   const slug = req.body.title
     .split(' ')
@@ -25,6 +28,7 @@ export const create = async (req, res, next) => {
     next(error);
   }
 };
+
 
 export const getposts = async (req, res, next) => {
   try {

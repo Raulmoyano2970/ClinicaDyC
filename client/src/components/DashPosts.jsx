@@ -99,7 +99,7 @@ export default function DashPosts() {
         {currentUser.isAdmin && userPosts.length > 0 ? (
           <>
             <Table hoverable className="min-w-full shadow-md overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
-              <Table.Head>
+              <Table.Head className='text-teal-700 border-1'>
                 <Table.HeadCell>Nombre</Table.HeadCell>
                 <Table.HeadCell>Rut</Table.HeadCell>
                 <Table.HeadCell>Edad</Table.HeadCell>
@@ -110,8 +110,8 @@ export default function DashPosts() {
                 <Table.HeadCell></Table.HeadCell>
               </Table.Head>
               {userPosts.map((post) => (
-                <Table.Body key={post._id} className="divide-y">
-                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Body key={post._id} className="divide-y ">
+                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800 hover:bg-teal-800/10">
                     <Table.Cell className="font-medium text-gray-900 dark:text-white">
                       <Link to={`/post/${post.slug}`}>
                         {post.contenido}

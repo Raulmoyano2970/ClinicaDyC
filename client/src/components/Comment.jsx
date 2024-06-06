@@ -138,41 +138,44 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               state={estadoModal}
               setState={setEstadoModal}
             >
-              <div ref={printRef} className='p-5' >
-                <div className='flex items-start text-lg'>
-                  <h3 className='font-semibold pr-1'>Nombre: </h3>
-                  <p>{post && post.contenido}</p>
-                </div>
-
-                <div className='flex items-start text-lg'>
-                  <h3 className='font-semibold pr-1'>Rut:</h3>
-                  <p>{post && post.title}</p>
-                </div>
-                <div className='flex items-start text-lg font'>
-                  <h3 className='font-semibold pr-1'>Edad: </h3>
-                  <p>{post && post.edad}</p>
-                </div>
-                <div className='flex items-start text-lg font'>
-                  <h3 className='font-semibold pr-1'>Sexo:</h3>
-                  <p>{post && post.category}</p>
-                </div>
-                <div className='flex items-start text-lg font'>
-                  <h3 className='font-semibold pr-1'>Fecha de receta: </h3>
-                  <p>{new Date(comment.updatedAt).toLocaleDateString()}</p>
-                </div>
-                <div className=''>
-                  <div className='text-lg'>
-                    <div className='flex items-start text-lg font'>
-                      <h3 className='font-semibold pr-1'>Diagnostico: </h3>
-                    </div>
-                    <div className='flex items-start text-lg font'>
-                      <p>{currentComment && currentComment.content}</p>
-                    </div>
+              <div ref={printRef} className='p-10' >
+                <div className='border-2 border-teal-500 p-5 rounded-md	'>
+                  <div className='flex items-start text-lg'>
+                    <h3 className='font-semibold pr-1'>Nombre: </h3>
+                    <p>{post && post.contenido}</p>
+                  </div>
+                  <div className='flex items-start text-lg'>
+                    <h3 className='font-semibold pr-1'>Rut:</h3>
+                    <p>{post && post.title}</p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                    <h3 className='font-semibold pr-1'>Sexo:</h3>
+                    <p>{post && post.category}</p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                    <h3 className='font-semibold pr-1'>Fecha de nacimiento: </h3>
+                    <p>{post && post.edad}</p>
+                  </div>
+                  <div className='flex items-start text-lg font'>
+                    <h3 className='font-semibold pr-1'>Fecha emision receta: </h3>
+                    <p>{new Date(comment.updatedAt).toLocaleDateString()}</p>
                   </div>
                 </div>
-                <div className='text-lg pt-20'>
-                  <hr className="flex justify-center w-64 h-px mx-auto bg-gray-300 border-0 rounded md:my-1 dark:bg-gray-700" />
-                  <h3 className='flex justify-center font-semibold p-3'>Firma Medico</h3>
+                <div className='border-2 border-teal-500 p-5 mt-3 rounded-md'>
+                    <div className='text-lg'>
+                      <div className='flex items-start text-lg font'>
+                        <h3 className='font-semibold pr-1'>Diagnostico: </h3>
+                      </div>
+                      <div className='flex items-start text-lg font'>
+                        <p>{currentComment && currentComment.content}</p>
+                      </div>
+                    </div>
+                  </div>
+                <div className=''>
+                  <div className='text-lg pt-40'>
+                    <hr className="flex justify-center w-64 h-px mx-auto bg-gray-300 border-0 rounded md:my-1 dark:bg-gray-700" />
+                    <h3 className='flex justify-center font-semibold p-3'>Firma Medico</h3>
+                </div>
                 </div>
               </div>
               <div className="download pt-2 flex justify-center items-center">
