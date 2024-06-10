@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import './receta.css';
 
-const ModalReceta = ({ children, state, setState }) => {
+const ModalReceta = ({ children, state, setState, title }) => {
     return (
         <>
             {state &&
                 <Overlay>
                     <ContenedorModal>
                         <EncabezadoModal>
-                            <h3>Receta Médica</h3>    
+                            <h3>{title}</h3>
                         </EncabezadoModal>
                         <BotonCerrar onClick={() => setState(false)}>
                             <Link>

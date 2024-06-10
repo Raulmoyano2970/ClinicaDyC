@@ -3,11 +3,13 @@ import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
+import { FaThumbsUp } from 'react-icons/fa';
 import CommentSection from '../components/CommentSection';
 import DashSidebar from '../components/DashSidebar';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
-import CommentDiagnostic from '../components/CommentDiagnostic';
+import CommentDiagnostic from '../components/ordenes/CommentDiagnostic';
+import CommentPostExodoncia from '../components/ordenes/PostExodoncia';
 
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
@@ -138,35 +140,76 @@ export default function PostPage() {
               <Link 
                 onClick={() => setEstadoModal(!estadoModal)}
                 className='w-full flex justify-center p-4 bg-teal-600 hover:bg-teal-800 text-white text-sm font-medium rounded-lg'>
-                Nueva Receta
+                  <div className='flex'>
+                    <span className='p-2'>Crear orden</span>
+                    <button
+                      type='button'
+                      onClick={() => onLike(comment._id)}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569z"/></svg>
+                    </button>
+                  </div>
               </Link>
               <div className='w-full gap-4 transitions text-white text-sm font-medium px-2 py-1 rounded'>
-                {/* model receta1 */}
+                {/* RECETA MEDICA*/}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Receta Medica"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <h1 className='font-semibold pb-3'>Diagnostico</h1>
+                            <CommentDiagnostic postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+                {/* //POST EXODONCIA */}
                 <ModalReceta
                   state= {estadoModal}
                   setState = {setEstadoModal}
-                >
-                  <div className='flex items-start text-lg pb-2'>
-                      <h1 className='font-semibold pr-1'>Nombre: </h1>
-                      <p>{post && post.contenido}</p>
-                  </div>
-                  <div className='flex items-start text-lg font pb-2'>
-                      <h1 className='font-semibold pr-1'>Rut:</h1>
-                      <p>{post && post.title}</p>
-                  </div>
-                  <div className='flex items-start text-lg font pb-2'>
-                      <h1 className='font-semibold pr-1'>Edad: </h1>
-                      <p> {post && post.edad} </p>
-                  </div>
-                  <div className='flex items-start text-lg font pb-2'>
-                      <h1 className='font-semibold pr-1'>Sexo:</h1>
-                      <p>{post && post.category}</p>
-                  </div>
-                  <div className=''>
-                      <div className='text-lg'>
-                          <h1 className='font-semibold pb-3'>Diagnostico</h1>
-                          <CommentDiagnostic postId={post._id} />
-                      </div>
+                  title="Indicaciones Post Exodoncia"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentPostExodoncia postId={post._id} />
+                        </div>
+                    </div>
                   </div>
                 </ModalReceta>
               </div>

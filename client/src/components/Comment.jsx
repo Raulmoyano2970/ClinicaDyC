@@ -211,15 +211,9 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
               >
                 <FaThumbsUp className='text-sm' />
               </button>
-              <p className='text-white border-0'>
-                {/* {comment.numberOfLikes > 0 &&
-                              comment.numberOfLikes +
-                              ' ' +
-                              (comment.numberOfLikes === 1 ? 'like' : 'likes')} */}
-              </p>
               {currentUser &&
                 (currentUser._id === comment.userId || currentUser.isAdmin) && (
-                  <Dropdown size='sm'>
+                  <Dropdown size='sm' >
                     <Dropdown.Item onClick={handleViewComment}>
                       Ver
                     </Dropdown.Item>
