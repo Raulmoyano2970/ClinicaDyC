@@ -6,7 +6,7 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function CommentPostExodoncia({ postId }) {
+export default function CommentCirugiaMayor({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
@@ -130,31 +130,28 @@ export default function CommentPostExodoncia({ postId }) {
             <form onSubmit={handleSubmit} className=''>
                 <div className=''>
                     <div>
-                      <h1 className='font-semibold pb-3'>Indicaciones:</h1>
+                        <h1 className='font-semibold pb-3'>Indicaciones: </h1>
                     </div>
                     <div>
-                        <h3 className='pb-1'>Estimado paciente: </h3>
+                        <p>RÉGIMEN CERO 8 HORAS ANTES DE LA CIRUGÍA. </p>
                     </div>
                     <div>
-                        <p>Se informa que luego de ser sometido a una exodoncia usted debe cumplir las siguientes indicaciones: </p>
+                        <p>METRONIDAZOL 1,5 G A LAS 23 HORAS DEL DÍA ANTERIOR A LA CIRUGÍA. </p>
                     </div>
                     <div>
-                        <p>1. Reposo relativo por dos días. Reposo deportivo por 5 días. Dormir con la cabeza elevada por dos días. </p>
+                        <p>AMPICILINA 2 G A LAS 23 HORAS DEL DÍA ANTERIOR A LA CIRUGÍA. </p>
                     </div>
                     <div>
-                        <p>2. Régimen papilla licuada fría/tibia por dos días. Luego continuar con régimen blando hasta el control.  </p>
+                        <p>CONTUMAX UN SOBRE DISUELTO EN 250 CC DE AGUA, PRIMERO SIETE SOBRES a LAS 19 HORAS DEL DÍA PREVIO A LA CIRUGÍA, REPETIR PROCESO CON LOS SIETE SOBRES RESTANTES A LAS 21 HORAS. </p>
                     </div>
                     <div>
-                        <p>3. Frío local intermitente por dos días. Luego calor local por 2 días. </p>
+                        <p>FLEET ENEMA RECTAL DOS HORAS ANTES DE LA CIRUGÍA.  </p>
                     </div>
                     <div>
-                        <p>4. Higiene oral con cepillado suave después de cada comida.  </p>
+                        <p>CEFAZOLINA 1 Gr 30 MINUTOS ANTES DE LA CIRUGÍA</p>
                     </div>
                     <div>
-                        <p>5. No fumar ni beber alcohol.  </p>
-                    </div>
-                    <div>
-                        <p>6. Solicitar control SOS en caso de: dolor intenso que no cede con la analgesia, sangrado activo, fiebre, dolor o dificultad para tragar. </p>
+                        <p>METRONIDAZOL DE 500 MG 30 MINUTOS ANTES DE LA CIRUGÍA.  </p>
                     </div>
                 </div>
                 <div className='flex place-content-end items-center mt-5'>

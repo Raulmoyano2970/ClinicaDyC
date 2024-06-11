@@ -6,7 +6,7 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function CommentPostExodoncia({ postId }) {
+export default function CommentCertificado({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
@@ -124,78 +124,62 @@ export default function CommentPostExodoncia({ postId }) {
     setComment(value);
   };
 
-    return (
-        <div className='max-w-2xl mx-auto w-full'>
-            {currentUser && (
-            <form onSubmit={handleSubmit} className=''>
-                <div className=''>
-                    <div>
-                      <h1 className='font-semibold pb-3'>Indicaciones:</h1>
-                    </div>
-                    <div>
-                        <h3 className='pb-1'>Estimado paciente: </h3>
-                    </div>
-                    <div>
-                        <p>Se informa que luego de ser sometido a una exodoncia usted debe cumplir las siguientes indicaciones: </p>
-                    </div>
-                    <div>
-                        <p>1. Reposo relativo por dos días. Reposo deportivo por 5 días. Dormir con la cabeza elevada por dos días. </p>
-                    </div>
-                    <div>
-                        <p>2. Régimen papilla licuada fría/tibia por dos días. Luego continuar con régimen blando hasta el control.  </p>
-                    </div>
-                    <div>
-                        <p>3. Frío local intermitente por dos días. Luego calor local por 2 días. </p>
-                    </div>
-                    <div>
-                        <p>4. Higiene oral con cepillado suave después de cada comida.  </p>
-                    </div>
-                    <div>
-                        <p>5. No fumar ni beber alcohol.  </p>
-                    </div>
-                    <div>
-                        <p>6. Solicitar control SOS en caso de: dolor intenso que no cede con la analgesia, sangrado activo, fiebre, dolor o dificultad para tragar. </p>
-                    </div>
-                </div>
-                <div className='flex place-content-end items-center mt-5'>
-                    <Button type='submit'>
-                    Guardar
-                    </Button>
-                </div>
-                {commentError && (
-                    <Alert color='failure' className='mt-5'>
-                    {commentError}
-                    </Alert>
-                )}
-            </form>
-            )}
-            <Modal
-                show={showModal}
-                onClose={() => setShowModal(false)}
-                popup
-                size='md'
-            >
-            <Modal.Header />
-                <Modal.Body>
-                    <div className='text-center'>
-                        <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
-                        <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-                        Estas eliminando este archivo completamente del registro, eliminar?
-                        </h3>
-                        <div className='flex justify-center gap-4'>
-                        <Button
-                            color='failure'
-                            onClick={() => handleDelete(commentToDelete)}
-                        >
-                            Si, eliminar
-                        </Button>
-                        <Button color='gray' onClick={() => setShowModal(false)}>
-                            No, cancelar
-                        </Button>
-                        </div>
-                    </div>
-                </Modal.Body>
-        </Modal>
-        </div>
+  return (
+    <div className='max-w-2xl mx-auto w-full'>
+      {currentUser && (
+        <form onSubmit={handleSubmit} className=''>
+          <div>
+              <h1 className='font-semibold pb-3'>Diagnostico: </h1>
+          </div>
+          <ReactQuill
+            placeholder='Escribir descripcion...'
+            className='h-25'
+            required
+            onChange={handleChange}
+            value={comment}
+          />
+          <div className='flex place-content-end items-center mt-5'>
+            <Button type='submit'>
+              Guardar
+            </Button>
+          </div>
+          {commentError && (
+            <Alert color='failure' className='mt-5'>
+              {commentError}
+            </Alert>
+          )}
+        </form>
+      )}
+      <Modal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        popup
+        size='md'
+      >
+        <Modal.Header />
+        <Modal.Body>
+          <div className='text-center'>
+            <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
+            <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
+              Estas eliminando esta receta completamente del registro, eliminar?
+            </h3>
+            <div className='flex justify-center gap-4'>
+              <Button
+                color='failure'
+                onClick={() => handleDelete(commentToDelete)}
+              >
+                Si, eliminar
+              </Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>
+                No, cancelar
+              </Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </div>
   );
 }
+
+
+

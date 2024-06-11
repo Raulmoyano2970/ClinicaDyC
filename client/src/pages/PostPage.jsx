@@ -8,8 +8,16 @@ import CommentSection from '../components/CommentSection';
 import DashSidebar from '../components/DashSidebar';
 import { TextInput } from 'flowbite-react';
 import ModalReceta from './Receta/ModalReceta';
-import CommentDiagnostic from '../components/ordenes/CommentDiagnostic';
+//IMPORTACION ORDENES
 import CommentPostExodoncia from '../components/ordenes/PostExodoncia';
+import CommentCirugiaMayor from '../components/ordenes/CirugiaMayor';
+import CommentCirugiaMayorAmbulatoria from '../components/ordenes/CirugiaMayorAmbulatoria';
+import CommentHabitoDefecatorio from '../components/ordenes/HabitoDefecatorio';
+import CommentPrurito from '../components/ordenes/Prurito';
+import CommentCertificado from '../components/ordenes/Certificado';
+import CommentRecetaMedica from '../components/ordenes/RecetaMedica';
+import CommentInterconsulta from '../components/ordenes/Interconsulta';
+import CommentFonoaudiologia from '../components/ordenes/Fonoaudiologia';
 
 //VISTA PERFIL PACIENTE
 export default function PostPage() {
@@ -151,6 +159,7 @@ export default function PostPage() {
                   </div>
               </Link>
               <div className='w-full gap-4 transitions text-white text-sm font-medium px-2 py-1 rounded'>
+                
                 {/* RECETA MEDICA*/}
                 {/* <ModalReceta
                   state= {estadoModal}
@@ -176,14 +185,14 @@ export default function PostPage() {
                     </div>
                     <div className=''>
                         <div className='text-lg'>
-                            <h1 className='font-semibold pb-3'>Diagnostico</h1>
-                            <CommentDiagnostic postId={post._id} />
+                            <CommentRecetaMedica postId={post._id} />
                         </div>
                     </div>
                   </div>
                 </ModalReceta> */}
-                {/* //POST EXODONCIA */}
-                <ModalReceta
+
+                {/* POST EXODONCIA */}
+                {/* <ModalReceta
                   state= {estadoModal}
                   setState = {setEstadoModal}
                   title="Indicaciones Post Exodoncia"
@@ -208,6 +217,223 @@ export default function PostPage() {
                     <div className=''>
                         <div className='text-lg'>
                             <CommentPostExodoncia postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* INDICACIONES CIRUGIA MAYOR AMBULATORIA */}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Indicaciones Cirugia Mayor Ambulatoria"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentCirugiaMayorAmbulatoria postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* INDICACIONES CIRUGIA MAYOR */}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Indicaciones Cirugia Mayor"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentCirugiaMayor postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* INDICACIONES HABITO DEFECATORIO */}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Indicaciones Habito Defecatorio"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentHabitoDefecatorio postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* INDICACIONES PRURITO */}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Indicaciones Prurito"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentPrurito postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* CERTIFICADO */}
+                {/* <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Certificado Medico"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentCertificado postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta> */}
+
+                {/* INTERCONSULTA */}
+                <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Interconsulta"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentInterconsulta postId={post._id} />
+                        </div>
+                    </div>
+                  </div>
+                </ModalReceta>
+
+                {/* FONOAUDIOLOGIA */}
+                <ModalReceta
+                  state= {estadoModal}
+                  setState = {setEstadoModal}
+                  title="Fonoaudiologia"
+                > 
+                  <div className='Receta'>
+                    <div className='flex items-start text-lg pb-2'>
+                        <h1 className='font-semibold pr-1'>Nombre: </h1>
+                        <p>{post && post.contenido}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Rut:</h1>
+                        <p>{post && post.title}</p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Edad: </h1>
+                        <p> {post && post.edad} </p>
+                    </div>
+                    <div className='flex items-start text-lg font pb-2'>
+                        <h1 className='font-semibold pr-1'>Sexo:</h1>
+                        <p>{post && post.category}</p>
+                    </div>
+                    <div className=''>
+                        <div className='text-lg'>
+                            <CommentFonoaudiologia postId={post._id} />
                         </div>
                     </div>
                   </div>

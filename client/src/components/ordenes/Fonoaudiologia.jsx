@@ -6,7 +6,7 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function CommentDiagnostic({ postId }) {
+export default function CommentFonoaudiologia({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
@@ -128,8 +128,11 @@ export default function CommentDiagnostic({ postId }) {
     <div className='max-w-2xl mx-auto w-full'>
       {currentUser && (
         <form onSubmit={handleSubmit} className=''>
+            <div>
+                <h1 className='font-semibold pb-3'>EVALUACION FONOAUDIOLOGIA Y TRATAMIENTO</h1>
+            </div>
           <ReactQuill
-            placeholder='Escribir diagnostico y observaciones...'
+            placeholder='Escribir detalle...'
             className='h-25'
             required
             onChange={handleChange}
@@ -137,7 +140,7 @@ export default function CommentDiagnostic({ postId }) {
           />
           <div className='flex place-content-end items-center mt-5'>
             <Button type='submit'>
-              Guardar diagnostico
+              Guardar
             </Button>
           </div>
           {commentError && (

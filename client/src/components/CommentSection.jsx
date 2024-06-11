@@ -129,9 +129,6 @@ export default function CommentSection({ postId }) {
     
     <div className='max-w-2xl mx-auto w-full p-3'>
           <>
-          <div>
-            <h1>Recetas medicas</h1>
-          </div>
           {comments.map((comment) => (
             <div class="grid grid-cols-12 my-2 bg-gray-500 bg-opacity-10 rounded-lg p-6">
             <div class="flex col-span-2 ">

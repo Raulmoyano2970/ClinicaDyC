@@ -6,7 +6,7 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function CommentPostExodoncia({ postId }) {
+export default function CommentHabitoDefecatorio({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
@@ -130,31 +130,19 @@ export default function CommentPostExodoncia({ postId }) {
             <form onSubmit={handleSubmit} className=''>
                 <div className=''>
                     <div>
-                      <h1 className='font-semibold pb-3'>Indicaciones:</h1>
+                        <h1 className='font-semibold pb-3'>Indicaciones: </h1>
                     </div>
                     <div>
-                        <h3 className='pb-1'>Estimado paciente: </h3>
+                        <p>DIETA RICA EN FIBRA, 30 GR DÍA </p>
                     </div>
                     <div>
-                        <p>Se informa que luego de ser sometido a una exodoncia usted debe cumplir las siguientes indicaciones: </p>
+                        <p>LIQUIDOS 2 – 2.5 LITROS DIA </p>
                     </div>
                     <div>
-                        <p>1. Reposo relativo por dos días. Reposo deportivo por 5 días. Dormir con la cabeza elevada por dos días. </p>
+                        <p>SUPLEMENTO DE FIBRA BARRA O POLVO  </p>
                     </div>
                     <div>
-                        <p>2. Régimen papilla licuada fría/tibia por dos días. Luego continuar con régimen blando hasta el control.  </p>
-                    </div>
-                    <div>
-                        <p>3. Frío local intermitente por dos días. Luego calor local por 2 días. </p>
-                    </div>
-                    <div>
-                        <p>4. Higiene oral con cepillado suave después de cada comida.  </p>
-                    </div>
-                    <div>
-                        <p>5. No fumar ni beber alcohol.  </p>
-                    </div>
-                    <div>
-                        <p>6. Solicitar control SOS en caso de: dolor intenso que no cede con la analgesia, sangrado activo, fiebre, dolor o dificultad para tragar. </p>
+                        <p>CONTUMAX 1 SOBRE DISUELTO EN 250 CC DE AGUA 1 VEZ EN LA MAÑANA </p>
                     </div>
                 </div>
                 <div className='flex place-content-end items-center mt-5'>
