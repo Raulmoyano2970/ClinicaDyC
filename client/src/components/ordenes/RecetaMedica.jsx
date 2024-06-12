@@ -129,7 +129,7 @@ export default function CommentRecetaMedica({ postId }) {
       {currentUser && (
         <form onSubmit={handleSubmit} className=''>
           <div>
-              <h1 className='font-semibold pb-3'>Diagnostico: </h1>
+          <h1 className='font-semibold pb-3'>Diagnostico:</h1>
           </div>
           <ReactQuill
             placeholder='Escribir diagnostico y medicacion...'

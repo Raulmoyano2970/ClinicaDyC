@@ -135,13 +135,14 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
         ) : (
           <>
             <ModalReceta
+
               state={estadoModal}
               setState={setEstadoModal}
             >
               <div ref={printRef} className='p-10' >
                 <div className='border-2 border-teal-500 p-5 rounded-md	'>
                   <div className='flex items-start text-lg'>
-                    <h3 className='font-semibold pr-1'>Nombre: </h3>
+                    <h3 className='font-semibold pr-1'>Nombre:</h3>
                     <p>{post && post.contenido}</p>
                   </div>
                   <div className='flex items-start text-lg'>
@@ -149,7 +150,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                     <p>{post && post.title}</p>
                   </div>
                   <div className='flex items-start text-lg font'>
-                    <h3 className='font-semibold pr-1'>Sexo:</h3>
+                    <h3 className='font-semibold pr-1'>Sexo22:</h3>
                     <p>{post && post.category}</p>
                   </div>
                   <div className='flex items-start text-lg font'>

@@ -44,13 +44,13 @@ const Overlay = styled.div`
 
 const ContenedorModal = styled.div`
     width: 700px;
-    max-height: 90vh; /* Adjust this value as needed */
+    max-height: 90vh; 
     background: #ffffff;
     position: relative;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
     padding: 50px;
-    overflow-y: auto; /* Add this line to enable vertical scrolling */
+    overflow-y: auto; 
 `;
 
 const EncabezadoModal = styled.div`
@@ -88,6 +88,6 @@ const BotonCerrar = styled.div`
 `;
 
 const ContenidoModal = styled.div`
-    max-height: calc(80vh - 140px); /* Adjust based on the padding and other elements' heights */
+    max-height: calc(80vh - 140px); 
     overflow-y: auto;
 `;
